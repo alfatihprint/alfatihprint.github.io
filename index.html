@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Irfan & Lena</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #fdfdfd; color: #333; }
+    .section { padding: 40px 20px; text-align: center; animation: fadeIn 1s ease forwards; opacity: 0; }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+    .btn { background: #6c63ff; color: white; padding: 12px 24px; border: none; border-radius: 25px; font-size: 16px; text-decoration: none; }
+    .countdown { font-size: 24px; font-weight: bold; margin-top: 10px; }
+    audio { display: none; }
+    form, .ucapan-list { max-width: 400px; margin: 20px auto; text-align: left; }
+    input, select, textarea { width: 100%; padding: 10px; margin: 5px 0 10px; border-radius: 5px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+<audio id="musik" autoplay loop>
+  <source src="https://drive.google.com/uc?export=download&id=18L4Buve-dOgspDBEvXoNvdxhEzOtkvzp" type="audio/mpeg">
+</audio>
+<script>
+  const musik = document.getElementById("musik");
+  musik.addEventListener("loadedmetadata", () => { musik.currentTime = 30; });
+</script>
+
+<div class="section" style="background:#fff;">
+  <h1>Undangan Pernikahan</h1>
+  <h2>Irfan & Lena</h2>
+  <p>06 Juli 2025</p>
+</div>
+
+<div class="section" style="background:#f1f1ff;">
+  <h2>Menuju Hari Bahagia</h2>
+  <div class="countdown" id="countdown">Menghitung waktu...</div>
+</div>
+
+<div class="section">
+  <h2>Akad Nikah</h2>
+  <p>Minggu, 6 Juli 2025 - Pukul 08.00 WIB</p>
+  <p>Kp. Pamoyanan 07/01, Desa Sukagalih, Kec. Tarogong Kidul, Garut</p>
+  <a href="https://maps.app.goo.gl/M5bJusV2Gr7nmWSFA?g_st=aw" target="_blank" class="btn">📍 Lihat Lokasi</a>
+</div>
+
+<div class="section" style="background:#f1f1ff;">
+  <h2>Resepsi</h2>
+  <p>Minggu, 6 Juli 2025 - Pukul 10.00 WIB</p>
+  <p>Tempat sama dengan akad</p>
+</div>
+
+<div class="section">
+  <h2>RSVP</h2>
+  <form id="rsvp-form">
+    <input type="text" placeholder="Nama" required>
+    <select required>
+      <option value="">Konfirmasi Kehadiran</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select>
+    <button type="submit" class="btn">Kirim</button>
+  </form>
+</div>
+
+<div class="section" style="background:#f1f1ff;">
+  <h2>Ucapan Doa</h2>
+  <form id="ucapan-form">
+    <input type="text" placeholder="Nama" required>
+    <textarea placeholder="Tulis ucapan..." required></textarea>
+    <button type="submit" class="btn">Kirim Ucapan</button>
+  </form>
+  <div class="ucapan-list" id="ucapan-list"></div>
+</div>
+
+<div class="section"><p>Terima kasih atas doa & restunya 🙏</p></div>
+
+<script>
+const countdown = document.getElementById("countdown");
+const eventDate = new Date("2025-07-06T00:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = eventDate - now;
+  if (distance < 0) { countdown.innerText = "Hari Pernikahan Telah Tiba!"; return; }
+  const d = Math.floor(distance / (1000*60*60*24));
+  const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const m = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const s = Math.floor((distance % (1000*60)) / 1000);
+  countdown.innerText = `${d} Hari ${h} Jam ${m} Menit ${s} Detik`;
+}, 1000);
+
+document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+  e.preventDefault(); alert('Terima kasih atas konfirmasinya!'); this.reset();
+});
+document.getElementById('ucapan-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nama = this.querySelector('input').value;
+  const pesan = this.querySelector('textarea').value;
+  const ucapanList = document.getElementById('ucapan-list');
+  const el = document.createElement('div');
+  el.innerHTML = `<p><strong>${nama}:</strong> ${pesan}</p>`;
+  ucapanList.prepend(el); this.reset();
+});
+</script>
+
+</body>
+</html>
