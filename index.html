@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wedding of Lena & Irfan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #fef6f6;
+      overflow-x: hidden;
+    }
+    .hero {
+      height: 100vh;
+      background: url('background.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #8e44ad;
+      margin-bottom: 10px;
+    }
+    .open-btn {
+      padding: 12px 25px;
+      background: #8e44ad;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .content { display: none; animation: fadeIn 1.5s ease-in-out; }
+    section { padding: 50px 20px; text-align: center; }
+    audio { display: none; }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 80%;
+      max-width: 400px;
+    }
+    .form-section { background: #fff; border-radius: 15px; padding: 20px; max-width: 500px; margin: auto; }
+    .comments { margin-top: 20px; }
+    .comments p { background: #f0f0f0; padding: 10px; border-radius: 5px; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>The Wedding of</h1>
+    <h1>Lena & Irfan</h1>
+    <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
+  </div>
 
+  <div class="content" id="invitation">
+    <audio id="bg-music" autoplay loop>
+      <source src="lagu-cinta-terakhir.mp3" type="audio/mpeg">
+    </audio>
+
+    <section style="background: #fff;">
+      <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+      <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan kami.</p>
+    </section>
+
+    <section style="background: #fce4ec;">
+      <h2>Acara</h2>
+      <p>Akad & Resepsi</p>
+      <p>Minggu, 6 Juli 2025</p>
+      <p>Kp. Corenda RT 03 RW 16, Desa Margaluyu, Kec. Leles, Kab. Garut</p>
+    </section>
+
+    <section class="form-section">
+      <h2>Konfirmasi Kehadiran</h2>
+      <input type="text" id="nama" placeholder="Nama Anda" />
+      <select id="kehadiran">
+        <option value="">Konfirmasi Kehadiran</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+      <button onclick="submitRSVP()">Kirim</button>
+
+      <h2>Ucapan Doa</h2>
+      <input type="text" id="ucapan-nama" placeholder="Nama Anda" />
+      <textarea id="ucapan-text" placeholder="Tulis ucapan..." rows="3"></textarea>
+      <button onclick="submitUcapan()">Kirim Ucapan</button>
+      <div class="comments" id="comments"></div>
+    </section>
+
+    <section>
+      <h2>Countdown Menuju Hari Bahagia</h2>
+      <div id="countdown"></div>
+    </section>
+  </div>
+
+  <script>
+    function openInvitation() {
+      document.querySelector('.hero').style.display = 'none';
+      document.getElementById('invitation').style.display = 'block';
+      document.getElementById('bg-music').play();
+    }
+
+    function submitRSVP() {
+      const nama = document.getElementById('nama').value;
+      const hadir = document.getElementById('kehadiran').value;
+      if (nama && hadir) {
+        alert(`Terima kasih, ${nama}. Kehadiran: ${hadir}`);
+      }
+    }
+
+    function submitUcapan() {
+      const nama = document.getElementById('ucapan-nama').value;
+      const ucapan = document.getElementById('ucapan-text').value;
+      if (nama && ucapan) {
+        const el = document.createElement('p');
+        el.innerText = `${nama}: ${ucapan}`;
+        document.getElementById('comments').appendChild(el);
+        document.getElementById('ucapan-nama').value = '';
+        document.getElementById('ucapan-text').value = '';
+      }
+    }
+
+    // Countdown timer
+    const targetDate = new Date('2025-07-06T08:00:00');
+    const countdownEl = document.getElementById('countdown');
+    setInterval(() => {
+      const now = new Date();
+      const distance = targetDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerText = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+    }, 1000);
+  </script>
+</body>
+</html>
