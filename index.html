@@ -1,1 +1,188 @@
-<!-- Placeholder: Isi HTML final telah dibuat sebelumnya -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Irfan & Lena</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #fff9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    .cover {
+      height: 100vh;
+      background: linear-gradient(to bottom right, #d3cce3, #e9e4f0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #4b0082;
+    }
+    .cover h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .cover button {
+      background: #4b0082;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #main {
+      display: none;
+      animation: fadeIn 1s ease-in;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px;
+      color: #4b0082;
+      margin-bottom: 10px;
+    }
+    .btn {
+      padding: 10px 20px;
+      background: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input, select, textarea {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #ucapan-list {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Halaman Pembuka -->
+<div class="cover" id="landing">
+  <h1>Irfan & Lena</h1>
+  <p>06 Juli 2025</p>
+  <button onclick="openInvitation()">Open Invitation</button>
+</div>
+
+<!-- Konten Undangan -->
+<div id="main">
+  <audio id="musik" autoplay loop>
+    <source src="https://drive.google.com/uc?export=download&id=18L4Buve-dOgspDBEvXoNvdxhEzOtkvzp" type="audio/mpeg" />
+  </audio>
+
+  <section>
+    <h2>The Wedding Of</h2>
+    <p>Irfan & Lena<br/>Minggu, 6 Juli 2025</p>
+  </section>
+
+  <section>
+    <h2>Lokasi Akad & Resepsi</h2>
+    <p>Kp. Pamoyanan 07/01, Desa Sukagalih, Tarogong Kidul – Garut</p>
+    <a class="btn" href="https://maps.app.goo.gl/M5bJusV2Gr7nmWSFA?g_st=aw" target="_blank">📍 Lihat Lokasi</a>
+  </section>
+
+  <section>
+    <h2>RSVP</h2>
+    <form id="rsvp-form">
+      <input type="text" id="nama-rsvp" placeholder="Nama Anda" required>
+      <select id="kehadiran" required>
+        <option value="">Konfirmasi Kehadiran</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+      <button type="submit" class="btn">Kirim</button>
+    </form>
+    <p id="hasil-rsvp"></p>
+  </section>
+
+  <section>
+    <h2>Ucapan Doa</h2>
+    <form id="ucapan-form">
+      <input type="text" id="nama-ucapan" placeholder="Nama Anda" required>
+      <textarea id="isi-ucapan" placeholder="Tulis ucapan..." required></textarea>
+      <button type="submit" class="btn">Kirim Ucapan</button>
+    </form>
+    <div id="ucapan-list"></div>
+  </section>
+
+  <section>
+    <h2>Countdown Menuju Hari Bahagia</h2>
+    <div id="countdown"></div>
+  </section>
+
+  <section><p>Terima kasih atas doa dan restunya 🙏</p></section>
+</div>
+
+<script>
+function openInvitation() {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+  const musik = document.getElementById('musik');
+  musik.currentTime = 30;
+  musik.play();
+}
+
+// RSVP
+let hadir = 0, tidakHadir = 0;
+document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const pilih = document.getElementById('kehadiran').value;
+  if (pilih === "Hadir") hadir++;
+  else if (pilih === "Tidak Hadir") tidakHadir++;
+  document.getElementById('hasil-rsvp').innerText = `✅ Hadir: ${hadir} | ❌ Tidak Hadir: ${tidakHadir}`;
+  this.reset();
+});
+
+// Ucapan
+document.getElementById('ucapan-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nama = document.getElementById('nama-ucapan').value;
+  const isi = document.getElementById('isi-ucapan').value;
+  const div = document.createElement('p');
+  div.innerHTML = `<strong>${nama}:</strong> ${isi}`;
+  document.getElementById('ucapan-list').prepend(div);
+  this.reset();
+});
+
+// Countdown
+const target = new Date("2025-07-06T00:00:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const selisih = target - now;
+  if (selisih < 0) {
+    document.getElementById("countdown").innerText = "Hari pernikahan telah tiba!";
+    return;
+  }
+  const d = Math.floor(selisih / (1000 * 60 * 60 * 24));
+  const h = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((selisih % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerText = `${d} hari ${h} jam ${m} menit ${s} detik`;
+}, 1000);
+</script>
+
+</body>
+</html>
