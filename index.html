@@ -1,1 +1,112 @@
+# Save the HTML content to a downloadable file
+
+html_content = """<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wedding of Lena & Irfan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .hero {
+      height: 100vh;
+      background: url('foto1.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      color: #fff;
+    }
+    .open-btn {
+      background: #8e44ad;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .section {
+      padding: 2em;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    audio {
+      display: none;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero" id="landing">
+  <h1>The Wedding of</h1>
+  <h1>Lena & Irfan</h1>
+  <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
+</div>
+
+<div class="section" id="mainContent" style="display:none;">
+  <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
+  <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan kami.</p>
+  <h3>Acara</h3>
+  <p>Akad & Resepsi: Minggu, 6 Juli 2025</p>
+  <p>Alamat: Kp. Corenda RT 03 RW 16, Desa Margaluyu, Kec. Leles, Kab. Garut</p>
+
+  <h3>Konfirmasi Kehadiran</h3>
+  <form id="rsvpForm">
+    <input type="text" placeholder="Nama Anda" required><br><br>
+    <select required>
+      <option value="">Konfirmasi Kehadiran</option>
+      <option value="hadir">Hadir</option>
+      <option value="tidak">Tidak Hadir</option>
+    </select><br><br>
+    <button type="submit">Kirim</button>
+  </form>
+
+  <h3>Ucapan Doa</h3>
+  <form id="doaForm">
+    <input type="text" placeholder="Nama Anda" required><br><br>
+    <textarea placeholder="Tulis ucapan..." required></textarea><br><br>
+    <button type="submit">Kirim Ucapan</button>
+  </form>
+</div>
+
+<audio id="bgm" autoplay loop>
+  <source src="lagu-cinta-terakhir.mp3.mp3#t=30" type="audio/mp3">
+</audio>
+
+<script>
+  function openInvitation() {
+    document.getElementById('landing').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+    document.getElementById('bgm').play();
+  }
+</script>
+
+</body>
+</html>
+"""
+
+# Save the HTML to file
+html_path = "/mnt/data/index_irfan_lena_final.html"
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+html_path
 <!-- File HTML final undangan lengkap (desain Canva, musik, animasi, RSVP, ucapan, tautan aktif) -->
