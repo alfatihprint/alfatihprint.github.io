@@ -22,12 +22,12 @@
       flex-direction: column;
       text-align: center;
       animation: fadeIn 2s ease-in-out;
-      padding: 2em;
     }
     h1 {
       font-family: 'Better Saturday', cursive;
       font-size: 3em;
       color: #fff;
+      margin-bottom: 0.3em;
     }
     .open-btn {
       margin-top: 20px;
@@ -43,6 +43,16 @@
       display: none;
       padding: 2em;
       animation: fadeIn 1.5s ease-in-out;
+    }
+    .hero {
+      height: 100vh;
+      background: url('IMG-20250526-WA0008.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
     }
     section {
       margin-bottom: 2em;
@@ -70,20 +80,20 @@
 </head>
 <body>
   <div class="hero">
-    <h1>Irfan & Lena</h1>
+    <h1>My Magical Story Irfan & Lena</h1>
     <p>06 Juli 2025</p>
     <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
   </div>
 
   <div class="content" id="main">
     <audio id="musik" autoplay loop>
-      <source src="lagu-cinta-terakhir.mp3.mp3#t=17" type="audio/mp3">
+      <source src="lagu-cinta-terakhir.mp3.mp3" type="audio/mp3">
     </audio>
 
     <section>
       <h2>Alamat</h2>
       <p>Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut</p>
-      <button class="btn-copy" onclick="copyText('alamat')">Copy Alamat</button>
+      <button class="btn-copy" onclick="copyText('Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut')">Copy Alamat</button>
     </section>
 
     <section>
