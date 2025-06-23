@@ -4,19 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Irfan & Lena Wedding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Better+Saturday&family=Times+new+roman&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Better+saturday&family=Times+new+roman&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin
       font-family: 'Times New Roman';
       background-color: #111;
       color: #fff;
       overflow-x: hidden;
     }
     .hero {
-      height: 110vh;
-      background: url('IMG-20250526-WA0006.jpg') center/cover no-repeat;
+      height: 100vh;
+      background: url('assets/bg.jpg') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,31 +26,29 @@
     h1 {
       font-family: 'Better Saturday', cursive;
       font-size: 3em;
-      color: #fff;
-      margin-bottom: 0.3em;
+      margin-bottom: 10px;
     }
     .open-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #474948;
+      background-color: #fff;
       color: #111;
       border: none;
-      border-radius: 5px;
+      padding: 1em 2em;
       font-size: 1em;
+      border-radius: 8px;
       cursor: pointer;
     }
     .content {
       display: none;
       padding: 2em;
-      animation: fadeIn 1.5s ease-in-out;
-    }q
+      animation: fadeIn 2s ease-in-out;
+    }
     section {
-      margin-bottom: 2em;
+      margin: 2em 0;
     }
     .btn-copy {
-      background-color: #888;
+      background: #888;
       border: none;
-      color: #fff;
+      color: white;
       padding: 8px 16px;
       border-radius: 5px;
       cursor: pointer;
@@ -59,40 +56,49 @@
     input, select, textarea {
       width: 100%;
       max-width: 400px;
-      margin: 10px 0;
       padding: 10px;
+      margin: 10px 0;
       border-radius: 5px;
       border: none;
     }
-    .rsvp-result, #ucapan-list {
-      margin-top: 10px;
+    .daun {
+      position: fixed;
+      top: -100px;
+      animation: gugur 10s linear infinite;
+      opacity: 0.3;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gugur {
+      0% { top: -100px; left: 50%; }
+      100% { top: 100vh; left: 50%; transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
   <div class="hero">
-    <h1>My Magical Story Irfan & Lena</h1>
+    <h1>Irfan & Lena</h1>
     <p>06 Juli 2025</p>
-    <p>Dear To: Mr./Mrs./Ms.</p>
     <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
-    <p>Mohon maaf apabila terdapat kesalahan penulisan nama/gelar</p>
   </div>
 
   <div class="content" id="main">
     <audio id="musik" autoplay loop>
-      <source src="lagu-cinta-terakhir.mp3.mp3" type="audio/mp3">
+      <source src="assets/lagu-cinta-terakhir.mp3.mp3#t=17" type="audio/mp3">
     </audio>
-    
+
     <section>
       <h2>Alamat</h2>
-      <p>Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut</p>
-      <button class="btn-copy" onclick="copyText('Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut')">Copy Alamat</button>
+      <p id="alamat">Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kidul, Kab. Garut</p>
+      <button class="btn-copy" onclick="copyText('Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kidul, Kab. Garut')">Salin Alamat</button>
     </section>
 
     <section>
       <h2>Nomor HP</h2>
-      <p>0878-9200-0510</p>
-      <button class="btn-copy" onclick="copyText('081234567890')">Copy Nomor HP</button>
+      <p id="nohp">0878-9200-0510</p>
+      <button class="btn-copy" onclick="copyText('0878-9200-0510')">Salin Nomor HP</button>
     </section>
 
     <section>
@@ -106,53 +112,57 @@
         </select>
         <button type="submit">Kirim</button>
       </form>
-      <div class="rsvp-result" id="rsvp-summary"></div>
+      <div id="hasil-rsvp"></div>
     </section>
 
     <section>
       <h2>Ucapan Doa</h2>
       <form id="ucapan-form">
-        <input type="text" id="ucapan-nama" placeholder="Nama Anda" required>
-        <textarea id="ucapan-isi" placeholder="Tulis ucapan..." required></textarea>
+        <input type="text" id="nama-ucapan" placeholder="Nama Anda" required>
+        <textarea id="isi-ucapan" placeholder="Tulis ucapan..." required></textarea>
         <button type="submit">Kirim Ucapan</button>
       </form>
       <div id="ucapan-list"></div>
     </section>
   </div>
 
+  <img src="assets/daun.png" class="daun" style="left: 10%; animation-delay: 0s;">
+  <img src="assets/daun.png" class="daun" style="left: 30%; animation-delay: 2s;">
+  <img src="assets/daun.png" class="daun" style="left: 50%; animation-delay: 4s;">
+
   <script>
     function openInvitation() {
       document.querySelector('.hero').style.display = 'none';
       document.getElementById('main').style.display = 'block';
-      document.getElementById('musik').currentTime = 17;
-      document.getElementById('musik').play();
+      const audio = document.getElementById('musik');
+      audio.currentTime = 30;
+      audio.play();
     }
 
-    function copyText(text) {
-      navigator.clipboard.writeText(text);
-      alert('Disalin: ' + text);
+    function copyText(id) {
+      const el = document.getElementById(id);
+      navigator.clipboard.writeText(el.innerText);
+      alert('Disalin: ' + el.innerText);
     }
 
     let hadir = 0;
     let tidakHadir = 0;
-
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const status = document.getElementById('status-rsvp').value;
       if (status === 'Hadir') hadir++;
       else if (status === 'Tidak Hadir') tidakHadir++;
-      document.getElementById('rsvp-summary').innerText = `✅ Hadir: ${hadir} | ❌ Tidak Hadir: ${tidakHadir}`;
+      document.getElementById('hasil-rsvp').innerText = `✅ Hadir: ${hadir} | ❌ Tidak Hadir: ${tidakHadir}`;
       this.reset();
     });
 
     document.getElementById('ucapan-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const nama = document.getElementById('ucapan-nama').value;
-      const isi = document.getElementById('ucapan-isi').value;
-      const list = document.getElementById('ucapan-list');
-      const p = document.createElement('p');
-      p.innerHTML = `<strong>${nama}:</strong> ${isi}`;
-      list.prepend(p);
+      const nama = document.getElementById('nama-ucapan').value;
+      const isi = document.getElementById('isi-ucapan').value;
+      const div = document.createElement('p');
+      div.innerHTML = `<strong>${nama}:</strong> ${isi}`;
+      document.getElementById('ucapan-list').prepend(div);
       this.reset();
     });
   </script>
