@@ -6,15 +6,16 @@
   <title>Irfan & Lena Wedding</title>
   <link href="https://fonts.googleapis.com/css2?family=Better+Saturday&family=Times+new+roman&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border box; }
     body {
-      margin: 0;
+      margin
       font-family: 'Times New Roman';
       background-color: #111;
       color: #fff;
       overflow-x: hidden;
     }
     .hero {
-      height: 100vh;
+      height: 90vh;
       background: url('IMG-20250526-WA0006.jpg') center/cover no-repeat;
       display: flex;
       justify-content: center;
@@ -79,18 +80,7 @@
     <audio id="musik" autoplay loop>
       <source src="lagu-cinta-terakhir.mp3.mp3" type="audio/mp3">
     </audio>
-
-    .hero {
-      height: 100vh;
-      background: url('IMG-20250526-WA0008.jpg') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      animation: fadeIn 2s ease-in-out;
-    }
-
+    
     <section>
       <h2>Alamat</h2>
       <p>Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut</p>
@@ -132,7 +122,7 @@
     function openInvitation() {
       document.querySelector('.hero').style.display = 'none';
       document.getElementById('main').style.display = 'block';
-      document.getElementById('musik').currentTime = 30;
+      document.getElementById('musik').currentTime = 17;
       document.getElementById('musik').play();
     }
 
