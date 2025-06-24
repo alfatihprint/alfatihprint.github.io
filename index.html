@@ -83,6 +83,7 @@
 <body>
 
   <div class="cover">
+    <img src="assets/foto-cover.jpg" width="80%" style="border-radius:20px;">
     <h1>My Magical Story</h1>
     <h1>06 Juli 2025</h1>
     <h1>-Irfan & Lena-</h1>
@@ -90,13 +91,15 @@
   </div>
 
   <audio id="bgm" loop>
-    <source src="assets/lagu-cinta-terakhir.mp3" type="audio/mp3">
+    <source src="assets/lagu-cinta-terakhir.mp3#t=17" type="audio/mp3">
   </audio>
 
   <div id="main" style="display:none;">
     <section>
-      <img src="assets/save-the-date.jpg" width="80%" style="border-radius:20px;">
+      <img src="assets/save-the-date.png" width="80%" style="border-radius:20px;">
       <h2>Save The Date</h2>
+      <img src="assets/kalender.png" width="30%" style="border-radius:20px;">
+      <a href="https://calendar.google.com" class="btn">Tambahkan ke Kalender</a>    
       <p>"Di antara tanda-tanda (kebesaran)-Nya
         ialah bahwa Dia menciptakan pasangan-pasangan
         untukmu dari (jenis) dirimu sendiri,
@@ -107,50 +110,52 @@
         terdapat tanda-tanda (kebesaran Allah)
         bagi kaum yang berpikir."
         QS Ar-Rum:21</p>
-      <a href="https://calendar.google.com" class="btn">Tambahkan ke Kalender</a>
     </section>
 
     <section>
-      <img src="assets/foto-lena.jpg" width="80%" style="border-radius:20px;">
+      <img src="assets/foto-lena.png" width="80%" style="border-radius:20px;">
       <h2 style="background:#444; padding:1em; border-radius:10px;">LENA NURPADILA</h2>
     </section>
 
     <section>
-      <img src="assets/foto-irfan.jpg" width="80%" style="border-radius:20px;">
+      <img src="assets/foto-irfan.png" width="80%" style="border-radius:20px;">
       <h2 style="background:#444; padding:1em; border-radius:10px;">IRFAN NURHAKIM</h2>
     </section>
 
     <section>
-      <img src="assets/cincin.jpg" width="80%" style="border-radius:20px;">
+      <img src="assets/cincin.png" width="40%" style="border-radius:20px;">
+      <h1>Wedding Event</h1>
       <h2>Akad Nikah</h2>
       <div class="gift-box">
         <p>Minggu, 06 Juli 2025 – 08.00 WIB</p>
         <p>Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut</p>
+        <img src="assets/maps.png" width="10%" style="border-radius:20px;">        
         <a href="https://maps.app.goo.gl/M5bJusV2Gr7nmWSFA?g_st=aw" class="btn">Maps</a>
       </div>
     </section>
 
     <section>
-      <img src="assets/cincin.jpg" width="80%" style="border-radius:20px;">
+      <img src="assets/cincin.jpg" width="40%" style="border-radius:20px;">
       <h2>Resepsi</h2>
       <div class="gift-box">
         <p>Minggu, 06 Juli 2025 – 10.00 WIB</p>
         <p>Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut</p>
-        <img src="assets/maps.png" width="80%" style="border-radius:20px;">
+        <img src="assets/maps.png" width="10%" style="border-radius:20px;">
         <a href="https://maps.app.goo.gl/M5bJusV2Gr7nmWSFA?g_st=aw" class="btn">Maps</a>
       </div>
     </section>
 
     <section>
-      <h2>Countdown</h2>
-      <img src="assets/foto-couple.jpg" width="80%" style="border-radius:20px;">
+      <h1>Countdown</h1>
+      <img src="assets/foto-couple.jpg" width="60%" style="border-radius:20px;">
       <div class="countdown" id="countdown"></div>
     </section>
 
     <section>
-      <h2>Wedding Gift</h2>
-      <img src="assets/gift.png" width="80%" style="border-radius:20px;">
+      <h1>Wedding Gift</h1>
+      <img src="assets/gift.png" width="30%" style="border-radius:20px;">
       <div class="gift-box">
+        <img src="assets/Logo-dana.png" width="80%" style="border-radius:20px;">
         <p>0878-9200-0510<br>A.n Irfan Nurhakim (DANA)</p>
         <button class="copy-btn" onclick="copyText('087892000510')">Copy No HP</button>
       </div>
@@ -158,11 +163,12 @@
         <p>Kp. Pamoyanan RT 07 RW 01, Desa Sukagalih, Kec. Tarogong Kaler, Kab. Garut</p>
         <button class="copy-btn" onclick="copyText('alamat')">Copy Alamat</button>
       </div>
+      <img src="assets/wa.png" width="10%" style="border-radius:20px;">
       <a href="https://wa.link/0w8ckt" class="btn">Konfirmasi via WhatsApp</a>
     </section>
 
     <section>
-      <h2>Join With Us</h2>
+      <h1>Join With Us</h1>
       <form onsubmit="submitRSVP(event)">
         <input type="text" id="nama" placeholder="Nama Anda" required><br>
         <select id="status">
