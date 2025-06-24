@@ -27,7 +27,7 @@
       align-items: center;
     }
     h1 { font-family: 'Better Saturday', cursive; }
-    h2, h3 { font-family: 'Times New Roman', cursive; }
+    h2, h3, p { font-family: 'Times New Roman', cursive; }  
     .btn {
       padding: 1em 2em;
       border: none;
@@ -45,21 +45,24 @@
       font-size: 2em;
     }
     .leaf {
-      position: fixed;
-      top: -10%;
+      position: absolute;
+      top: -100px;
       width: 30px;
-      height: 30px;
-      animation: fall 10s linear infinite;
-      pointer-events: none;
-      z-index: 0;
+      opacity: 0.8;
+      animation-name: fall;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
     }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 1;
+      }
+    }    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0); }
-      100% { transform: translateY(100vh) rotate(360deg); }
     }
     .gift-box, .map-box {
       background: #fff;
@@ -82,49 +85,56 @@
 </head>
 <body>
 
-  <div class="cover">
-    <img src="assets/foto-cover.jpg" width="80%" style="border-radius:20px;">
+  <div class="cover">    
     <h1>My Magical Story</h1>
-    <h1>06 Juli 2025</h1>
+    <h2>06 Juli 2025</h2>
     <h1>-Irfan & Lena-</h1>
     <button class="btn" onclick="openInvitation()">Open Invitation</button>
   </div>
 
   <audio id="bgm" loop>
-    <source src="assets/lagu-cinta-terakhir.mp3#t=17" type="audio/mp3">
+    <source src="assets/lagu-cinta-terakhir.mp3#t=16" type="audio/mp3">
   </audio>
 
-  <div id="main" style="display:none;">
-    <section>
-      <img src="assets/save-the-date.png" width="80%" style="border-radius:20px;">
-      <h2>Save The Date</h2>
-      <img src="assets/kalender.png" width="30%" style="border-radius:20px;">
-      <a href="https://calendar.google.com" class="btn">Tambahkan ke Kalender</a>    
-      <p>"Di antara tanda-tanda (kebesaran)-Nya
-        ialah bahwa Dia menciptakan pasangan-pasangan
-        untukmu dari (jenis) dirimu sendiri,
-        agar kamu merasa tenteram
-        kepadanya. Dan dia menjadikan di antaramu
-        rasa cinta dan kasih sayang. Sungguh,
-        pada yang demikian itu benar-benar
-        terdapat tanda-tanda (kebesaran Allah)
-        bagi kaum yang berpikir."
-        QS Ar-Rum:21</p>
-    </section>
+  <section id="slide-1" style="position: relative; height: 100vh; background-image: url('assets/foto-save-the-date.png'); background-size: cover; background-position: center; overflow: hidden;">
+  <!-- Efek daun gugur -->
+  <canvas id="falling-leaves"></canvas>
+
+  <!-- Teks Atas: The Wedding Of Irfan & Lena -->
+  <div style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); text-align: center; color: white; font-family: 'Better Saturday', cursive; font-size: 2.5rem; animation: fadeInDown 1s ease-out;">
+    The Wedding of<br>
+    <strong style="font-family: 'Times New Roman', serif; font-size: 1.8rem;">IRFAN & LENA</strong>
+  </div>
+
+  <!-- Tanggal dan tombol save the date -->
+  <div style="position: absolute; top: 40px; right: 30px; text-align: right; color: white; animation: fadeInRight 1.2s ease-out;">
+    <div style="font-size: 1rem;">06.07.2025</div>
+    <a href="https://calendar.google.com/event?action=TEMPLATE&dates=20250706T010000Z/20250706T030000Z&text=The+Wedding+of+Irfan+and+Lena" target="_blank" style="display: inline-block; margin-top: 8px; background: rgba(255, 255, 255, 0.2); padding: 8px 12px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold;">
+      <img src="assets/kalender.png" alt="Calendar" style="width: 24px; vertical-align: middle; margin-right: 6px;">Save The Date
+    </a>
+  </div>
+
+  <!-- Ayat -->
+  <div style="position: absolute; bottom: 40px; width: 90%; left: 50%; transform: translateX(-50%); color: white; font-size: 1rem; font-style: italic; font-family: 'Times New Roman', serif; text-align: center; line-height: 1.5; animation: fadeInUp 1.5s ease-out; text-shadow: 1px 1px 4px rgba(0,0,0,0.6);">
+    "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+    <br><strong>Qs. Ar-Rum:21</strong>
+  </div>
+</section>
+
 
     <section>
-      <img src="assets/foto-lena.png" width="80%" style="border-radius:20px;">
+      <img src="assets/foto-lena.png" width="100%" style="border-radius:20px;">
       <h2 style="background:#444; padding:1em; border-radius:10px;">LENA NURPADILA</h2>
     </section>
 
     <section>
-      <img src="assets/foto-irfan.png" width="80%" style="border-radius:20px;">
+      <img src="assets/foto-irfan.png" width="100%" style="border-radius:20px;">
       <h2 style="background:#444; padding:1em; border-radius:10px;">IRFAN NURHAKIM</h2>
     </section>
 
     <section>
-      <img src="assets/cincin.png" width="40%" style="border-radius:20px;">
       <h1>Wedding Event</h1>
+      <img src="assets/cincin.png" width="50%" style="border-radius:20px;">      
       <h2>Akad Nikah</h2>
       <div class="gift-box">
         <p>Minggu, 06 Juli 2025 – 08.00 WIB</p>
@@ -147,7 +157,7 @@
 
     <section>
       <h1>Countdown</h1>
-      <img src="assets/foto-couple.jpg" width="60%" style="border-radius:20px;">
+      <img src="assets/foto-couple.jpg" width="90%" style="border-radius:20px;">
       <div class="countdown" id="countdown"></div>
     </section>
 
@@ -186,12 +196,32 @@
       </form>
       <div id="daftar-ucapan"></div>
     </section>
+
+    <section>
+      <img src="assets/foto-thanks.png" width="80%" style="border-radius:20px;">
+      <h1 style="padding:1em; border-radius:10px;">Thankyou</h1>
+      <h2 style="padding:1em; border-radius:10px;">-IRFAN & LENA-</h2>
+      <p>Made by Al-Fatih Print</p>
+      <img src="assets/wa.png" width="10%" style="border-radius:20px;">
+      <p>Made by Al-Fatih Print</p>
+      
+    </section>
   </div>
 
   <!-- Daun gugur -->
-  <img src="assets/daun-emas.png" class="leaf" style="left:10%; animation-delay: 0s;">
-  <img src="assets/daun-emas.png" class="leaf" style="left:40%; animation-delay: 2s;">
-  <img src="assets/daun-emas.png" class="leaf" style="left:70%; animation-delay: 4s;">
+  <div class="falling-leaves">
+  <img src="assets/daun-emas.png" class="leaf leaf1" style="left:5%; animation-delay: 0s;">
+  <img src="assets/daun-emas.png" class="leaf leaf2" style="left:15%; animation-delay: 1s;">
+  <img src="assets/daun-emas.png" class="leaf leaf3" style="left:25%; animation-delay: 2s;">
+  <img src="assets/daun-emas.png" class="leaf leaf4" style="left:35%; animation-delay: 3s;">
+  <img src="assets/daun-emas.png" class="leaf leaf5" style="left:45%; animation-delay: 1.5s;">
+  <img src="assets/daun-emas.png" class="leaf leaf6" style="left:55%; animation-delay: 2.5s;">
+  <img src="assets/daun-emas.png" class="leaf leaf7" style="left:65%; animation-delay: 0.5s;">
+  <img src="assets/daun-emas.png" class="leaf leaf8" style="left:75%; animation-delay: 4s;">
+  <img src="assets/daun-emas.png" class="leaf leaf9" style="left:85%; animation-delay: 3.5s;">
+  <img src="assets/daun-emas.png" class="leaf leaf10" style="left:95%; animation-delay: 2s;">
+</div>
+
 
   <script>
     function openInvitation() {
