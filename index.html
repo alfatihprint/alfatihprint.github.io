@@ -4,16 +4,14 @@
     padding: 0;
     width: 100vw;
     height: 100vh;
-    box-sizing: border-box;
     overflow: hidden;
+    box-sizing: border-box;
   }
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-
   body.lock-scroll {
     overflow: hidden;
   }
@@ -21,54 +19,54 @@
   @keyframes fadeInUpCenter {
     0% {
       opacity: 0;
-      transform: translateY(60px);
+      transform: translate(-50%, 60px);
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate(-50%, 0);
     }
-  }
-
-  .fadeIn {
-    animation: fadeInUpCenter 1s ease-out forwards;
   }
 </style>
 
-<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; overflow: hidden;">
-  <img src="assets/foto-cover.png" alt="Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+<section id="cover-slide" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
+  <img src="assets/foto-cover.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;" alt="Background">
 
   <!-- Teks My Magical Story -->
-  <div style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); text-align: center; color: white;">
-    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 0.5; animation: fadeInUpCenter 1s ease-out 0.2s;">My</div>
-    <div style="font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1; animation: fadeInUpCenter 1s ease-out 0.4s;">Magical</div>
-    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2; animation: fadeInUpCenter 1s ease-out 0.6s;">Story</div>
+  <div style="position: absolute; top: 8%; left: 50%; transform: translate(-50%, 0); text-align: center; color: white;">
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2; animation: fadeInUpCenter 1s ease-out 0.2s;">
+      My
+    </div>
+    <div style="font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1; animation: fadeInUpCenter 1s ease-out 0.4s;">
+      Magical
+    </div>
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2; animation: fadeInUpCenter 1s ease-out 0.6s;">
+      Story
+    </div>
   </div>
 
-  <!-- Teks Dear To -->
-  <div style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%); color: white; font-size: 2rem; animation: fadeInUpCenter 1s ease-out 0.8s;">
+  <!-- Dear to -->
+  <div style="position: absolute; top: 67%; left: 50%; transform: translate(-50%, 0); color: white; font-size: 2rem; animation: fadeInUpCenter 1s ease-out 0.8s;">
     Dear to: Mr./Mrs./Ms.
   </div>
 
   <!-- Tombol Open Invitation -->
-  <a href="#" onclick="openInvitation()" style="position: absolute; top: 72%; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 36px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.3rem; border-radius: 8px; text-decoration: none; white-space: nowrap; animation: fadeInUpCenter 1s ease-out 1s;">
+  <a href="#" onclick="openInvitation()" style="position: absolute; top: 72%; left: 50%; transform: translate(-50%, 0); display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 36px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.3rem; border-radius: 8px; text-decoration: none; white-space: nowrap; animation: fadeInUpCenter 1s ease-out 1s;">
     <img src="assets/amplop.png" alt="Envelope" width="40" height="40"> Open Invitation
   </a>
 
   <!-- Teks Maaf Penulisan -->
-  <div style="position: absolute; top: 79%; left: 50%; transform: translateX(-50%); color: white; font-size: 1rem; animation: fadeInUpCenter 1s ease-out 1.2s;">
+  <div style="position: absolute; top: 79%; left: 50%; transform: translate(-50%, 0); color: white; font-size: 1rem; animation: fadeInUpCenter 1s ease-out 1.2s;">
     Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
   </div>
 
-  <!-- Teks Irfan & Lena -->
-  <div style="position: absolute; top: 83%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 1s ease-out 1.4s;">
+  <!-- Tanda Nama -->
+  <div style="position: absolute; top: 84%; left: 50%; transform: translate(-50%, 0); white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 1s ease-out 1.4s;">
     – IRFAN & LENA –
   </div>
 </section>
 
 <script>
-  // Kunci scroll
   document.body.classList.add('lock-scroll');
-
   function openInvitation() {
     document.body.classList.remove('lock-scroll');
     document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
