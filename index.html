@@ -4,13 +4,20 @@
     padding: 0;
     width: 100vw;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
+    box-sizing: border-box;
   }
-  html, body {
-    overflow-x: hidden;
-    width: 100vw;
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+ 
+  body.lock-scroll {
+    overflow: hidden;
+  }
+ 
  @keyframes fadeInUpCenter {
   0% {
     opacity: 0;
@@ -20,30 +27,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body.lock-scroll {
-    overflow: hidden;
-  }
+}   
 </style>
 
 <section id="cover-slide" style="width: 100vw; height: 92.5vh; overflow: hidden; width: 100vw; position: relative; height: 92.5vh;  background-image: url('assets/foto-cover.png'); background-size: cover; background-repeat: no-repeat; background-position: center 100%; overflow: hidden;">
@@ -96,6 +80,7 @@
     - IRFAN & LENA -
    </div>
   </div>
+ 
 </section>
 
 <script>
