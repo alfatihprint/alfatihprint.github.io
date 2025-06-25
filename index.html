@@ -28,17 +28,20 @@
   }
 </style>
 
-<section id="cover-slide" style="width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center 30%; background-repeat: no-repeat; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 5vh 0; text-align: center; overflow: hidden;">
+<section id="cover-slide" style="width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center 30%; background-repeat: no-repeat; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; overflow: hidden;">
 
-  <!-- Atas: My Magical Story -->
-  <div style="animation: fadeInUpCenter 1.5s ease-out 0.3s;">
+  <!-- Bagian Atas: My Magical Story -->
+  <div style="margin-top: 5vh; animation: fadeInUpCenter 1.5s ease-out 0.3s;">
     <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem;">My</div>
     <div style="color: white; font-family: 'Better Saturday', cursive; font-size: 8rem;">Magical</div>
     <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem;">Story</div>
   </div>
 
-  <!-- Bawah -->
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1.4rem;">
+  <!-- Spacer agar tidak terlalu bawah -->
+  <div style="flex: 1;"></div>
+
+  <!-- Bagian Bawah: Dear to, Tombol, dst -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 1.2rem; margin-bottom: 5vh;">
 
     <!-- Dear to -->
     <div style="color: white; font-size: 2rem; animation: fadeInUpCenter 1.5s ease-out 0.6s;">
@@ -50,7 +53,7 @@
       <img src="assets/amplop.png" alt="Envelope" width="32" height="32"> Open Invitation
     </a>
 
-    <!-- Maaf -->
+    <!-- Maaf Penulisan -->
     <div style="color: white; font-size: 1rem; animation: fadeInUpCenter 1.5s ease-out 1.2s;">
       Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
     </div>
@@ -59,7 +62,6 @@
     <div style="white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 1.5s ease-out 1.5s;">
       – IRFAN & LENA –
     </div>
-
   </div>
 </section>
 
@@ -78,7 +80,6 @@
 
 <script>
   document.body.classList.add('lock-scroll');
-
   function openInvitation() {
     document.body.classList.remove('lock-scroll');
     document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
@@ -89,3 +90,4 @@
     }
   }
 </script>
+
