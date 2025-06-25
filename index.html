@@ -22,10 +22,16 @@
     opacity: 0;
     animation-fill-mode: forwards;
   }
-  @keyframes fadeInUpCenter {
-    0% { opacity: 0; transform: translateY(120px); }
-    100% { opacity: 1; transform: translateY(0); }
+   @keyframes fadeInUpCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 60px);
   }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
 </style>
 
 <section id="cover-slide" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
@@ -33,9 +39,15 @@
   
   <!-- Teks "My Magical Story" -->
 <div style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); text-align: center; color: white;">
-  <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2; animation: fadeInUpCenter 1s ease-out 0.2s;">My</div>
-  <div style="font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1; animation: fadeInUpCenter 1s ease-out 0.4s;">Magical</div>
-  <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2; animation: fadeInUpCenter 1s ease-out 0.6s;">Story</div>
+  <div style="animation: fadeInUpCenter 1s ease-out 0.2s;">
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2;">My</div>
+  </div>
+  <div style="animation: fadeInUpCenter 1s ease-out 0.4s;">
+    <div style="font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1;">Magical</div>
+  </div>
+  <div style="animation: fadeInUpCenter 1s ease-out 0.6s;">
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2;">Story</div>
+  </div>
 </div>
 
   <!-- Dear to -->
@@ -57,21 +69,7 @@
   <div style="position: absolute; top: 82%; left: 50%; transform: translate(-50%, 0); white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 1s ease-out 1.4s;">
     – IRFAN & LENA –
   </div>
-
 </section>
-
-<style> 
- @keyframes fadeInUpCenter {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 60px);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-</style>
 
 <script>
   document.body.classList.add('lock-scroll');
