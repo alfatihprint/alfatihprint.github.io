@@ -1,101 +1,98 @@
 <style>
- html, body {
+  html, body {
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     box-sizing: border-box;
   }
 
- * {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
- 
+
   body.lock-scroll {
     overflow: hidden;
   }
- 
- @keyframes fadeInUpCenter {
-  0% {
-    opacity: 0;
-    transform: translateY(60px);
+
+  @keyframes fadeInUpCenter {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}   
 </style>
 
-<section id="cover-slide" style="width: 100vw; height: 92.5vh; position: relative; background-image: url('assets/foto-cover.png'); background-size: cover; background-repeat: no-repeat; background-position: center 30%;">
-  <!-- Teks My Magical Story -->
-  <div style="position: absolute; top: 10.1%; left: 47%; transform: translateX(-50%); text-align: center; ">
-   <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem; animation: fadeInUpCenter 2s ease-out 0.3s;">
-    My
-   </div>
-  </div>
-   
-  
-  <div style="position: absolute; top: 10.15%; left: 50%; transform: translateX(-50%); text-align: center; ">
-   <div style="color: white; font-family: 'Better Saturday', cursive; font-size: 8rem; animation: fadeInUpCenter 2s ease-out 0.6s;">
-    Magical
-   </div>
-  </div>
-  
-  <div style="position: absolute; top: 17.3%; left: 57%; transform: translateX(-50%); text-align: center; "> 
-   <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem; animation: fadeInUpCenter 2s ease-out 0.9s;">
-    Story
-   </div>
+<section id="cover-slide" style="width: 100vw; height: 100vh; position: relative; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center 30%; background-repeat: no-repeat;">
+
+  <!-- My Magical Story -->
+  <div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); text-align: center;">
+    <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem; animation: fadeInUpCenter 1.5s ease-out 0.2s;">
+      My
+    </div>
   </div>
 
-  <!-- Teks Dear to -->
-  <div style="position: absolute; bottom: 540px; left: 50%; transform: translateX(-50%); text-align: center; ">
-   <div style="color: white; font-size: 2rem; animation: fadeInUpCenter 2s ease-out 1.2s;">
-    Dear to: Mr./Mrs./Ms.
-   </div>
-   </div>
+  <div style="position: absolute; top: 13%; left: 50%; transform: translateX(-50%); text-align: center;">
+    <div style="color: white; font-family: 'Better Saturday', cursive; font-size: 8rem; animation: fadeInUpCenter 1.5s ease-out 0.4s;">
+      Magical
+    </div>
+  </div>
 
-  <!-- Tombol Open Invitation -->
-  <div style="position: absolute; bottom: 350px; left: 50%; transform: translateX(-50%); width: 100%; text-align: center;">
-    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 30px; padding: 30px 60px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none; white-space: nowrap; width: fit-content; margin: 0 auto; animation: fadeInUpCenter 2s ease-out 1.5s;">
-      <img src="assets/amplop.png" alt="Envelope" style="width: 60px; height: 60px;"> Open Invitation
+  <div style="position: absolute; top: 23%; left: 50%; transform: translateX(-50%); text-align: center;">
+    <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem; animation: fadeInUpCenter 1.5s ease-out 0.6s;">
+      Story
+    </div>
+  </div>
+
+  <!-- Dear to -->
+  <div style="position: absolute; bottom: 220px; left: 50%; transform: translateX(-50%); text-align: center;">
+    <div style="color: white; font-size: 2rem; animation: fadeInUpCenter 1.5s ease-out 0.8s;">
+      Dear to: Mr./Mrs./Ms.
+    </div>
+  </div>
+
+  <!-- Open Invitation -->
+  <div style="position: absolute; bottom: 160px; left: 50%; transform: translateX(-50%); text-align: center;">
+    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 20px; padding: 16px 30px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.4rem; border-radius: 8px; text-decoration: none; white-space: nowrap; animation: fadeInUpCenter 1.5s ease-out 1s;">
+      <img src="assets/amplop.png" alt="Envelope" style="width: 32px; height: 32px;"> Open Invitation
     </a>
   </div>
 
-  <!-- Teks Maaf Penulisan Nama -->
-  <div style="position: absolute; bottom: 285px; left: 50%; transform: translateX(-50%); text-align: center;">
-   <div style="animation: fadeInUpCenter 2s ease-out 1.8s;color: white; font-size: 1rem;">
-    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
-   </div>
+  <!-- Maaf Penulisan -->
+  <div style="position: absolute; bottom: 115px; left: 50%; transform: translateX(-50%); text-align: center;">
+    <div style="color: white; font-size: 1rem; animation: fadeInUpCenter 1.5s ease-out 1.2s;">
+      Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
+    </div>
   </div>
 
-  <!-- Tanda Nama Irfan & Lena -->
-  <div style="position: absolute; bottom: 160px; left: 50%; transform:translateX(-50%); text-align: center; width: 100℅; ">
-   <div style="display: inline-block; white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 2s ease-out 2.1s; ">
-    - IRFAN & LENA -
-   </div>
+  <!-- Tanda Tangan -->
+  <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); text-align: center;">
+    <div style="white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 1.5s ease-out 1.4s;">
+      – IRFAN & LENA –
+    </div>
   </div>
- 
+
 </section>
 
 <script>
-  // Kunci scroll saat halaman cover aktif
+  // Kunci scroll awal
   document.body.classList.add('lock-scroll');
 
   function openInvitation() {
-    // Hapus kunci scroll saat tombol diklik
     document.body.classList.remove('lock-scroll');
-    // Scroll ke slide pertama
     document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
-    
+
     const audio = document.getElementById('bgm');
     if (audio) {
-    audio.currentTime = 16; // mulai dari detik ke-16
-    audio.play();
+      audio.currentTime = 16; // Mulai dari lirik "sedalam samudra..."
+      audio.play();
+    }
   }
 </script>
-
-<!-- Catatan: Efek daun gugur tetap tidak ditampilkan di halaman cover -->
