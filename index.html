@@ -30,55 +30,40 @@
   }
 </style>
 
-<section id="cover-slide" style="width: 100vw; height: 100vh; position: relative; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center 30%; background-repeat: no-repeat;">
+<section id="cover-slide" style="width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center 30%; background-repeat: no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.8rem; text-align: center; position: relative; overflow: hidden;">
 
   <!-- My Magical Story -->
-  <div style="position: absolute; top: 10%; left: 47%; transform: translateX(-50%); text-align: center;">
-    <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem; animation: fadeInUpCenter 1.5s ease-out 0.2s;">
+  <div style="animation: fadeInUpCenter 1.5s ease-out 0.2s;">
+    <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem;">
       My
     </div>
-  </div>
-
-  <div style="position: absolute; top: 10.14%; left: 50%; transform: translateX(-50%); text-align: center;">
-    <div style="color: white; font-family: 'Better Saturday', cursive; font-size: 8rem; animation: fadeInUpCenter 1.5s ease-out 0.4s;">
+    <div style="color: white; font-family: 'Better Saturday', cursive; font-size: 8rem;">
       Magical
     </div>
-  </div>
-
-  <div style="position: absolute; top: 17.2%; left: 57%; transform: translateX(-50%); text-align: center;">
-    <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem; animation: fadeInUpCenter 1.5s ease-out 0.6s;">
+    <div style="color: white; font-family: 'Times New Roman', cursive; font-size: 3rem;">
       Story
     </div>
   </div>
 
   <!-- Dear to -->
-  <div style="position: absolute; bottom: 370px; left: 50%; transform: translateX(-50%); text-align: center;">
-    <div style="color: white; font-size: 2rem; animation: fadeInUpCenter 1.5s ease-out 0.8s;">
-      Dear to: Mr./Mrs./Ms.
-    </div>
+  <div style="color: white; font-size: 2rem; animation: fadeInUpCenter 1.5s ease-out 0.5s;">
+    Dear to: Mr./Mrs./Ms.
   </div>
 
   <!-- Open Invitation -->
-  <div style="position: absolute; bottom: 300px; left: 50%; transform: translateX(-50%); text-align: center;">
-    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 20px; padding: 16px 30px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.4rem; border-radius: 8px; text-decoration: none; white-space: nowrap; animation: fadeInUpCenter 1.5s ease-out 1s;">
-      <img src="assets/amplop.png" alt="Envelope" style="width: 32px; height: 32px;"> Open Invitation
-    </a>
-  </div>
+  <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 20px; padding: 16px 30px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.4rem; border-radius: 8px; text-decoration: none; white-space: nowrap; animation: fadeInUpCenter 1.5s ease-out 0.8s;">
+    <img src="assets/amplop.png" alt="Envelope" style="width: 32px; height: 32px;"> Open Invitation
+  </a>
 
   <!-- Maaf Penulisan -->
-  <div style="position: absolute; bottom: 255px; left: 50%; transform: translateX(-50%); text-align: center;">
-    <div style="color: white; font-size: 1rem; animation: fadeInUpCenter 1.5s ease-out 1.2s;">
-      Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
-    </div>
+  <div style="color: white; font-size: 1rem; animation: fadeInUpCenter 1.5s ease-out 1.1s;">
+    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
   </div>
 
   <!-- Tanda Tangan -->
-  <div style="position: absolute; bottom: 210px; left: 50%; transform: translateX(-50%); text-align: center;">
-    <div style="white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 1.5s ease-out 1.4s;">
-      – IRFAN & LENA –
-    </div>
+  <div style="white-space: nowrap; font-size: 4.5rem; font-family: 'Times New Roman', cursive; color: white; animation: fadeInUpCenter 1.5s ease-out 1.4s;">
+    – IRFAN & LENA –
   </div>
-
 </section>
 
 <script>
