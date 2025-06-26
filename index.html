@@ -16,40 +16,43 @@
     overflow: hidden;
   }
 
-  @keyframes fadeInUpCenter {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, 60px);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
+  @keyframes fadeInUpOnly {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 </style>
 
 <section id="cover-slide" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
   <img src="assets/foto-cover.png" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;" alt="Background">
 
-  
   <!-- Teks My Magical Story -->
-  <div style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%, 0); text-align: center; color: white;">
-    <div style="animation: fadeInUpCenter 1s ease-out 0.2s; position: relative; left: -1px;">
-      <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 10;">My</div>
+  <div style="position: absolute; top: 8%; left: 50%; transform: translate(-50%, 0); text-align: center; color: white;">
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2; animation: fadeInUpCenter 1s ease-out 0.2s;">
+      My
     </div>
-    <div style="animation: fadeInUpCenter 1s ease-out 0.4s;">
-      <div style="font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1;">Magical</div>
+    <div style="font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1; animation: fadeInUpCenter 1s ease-out 0.4s;">
+      Magical
     </div>
-    <div style="animation: fadeInUpCenter 1s ease-out 0.6s; position: relative; left: 50px;">
-      <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 2;">Story</div>
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 1.2; animation: fadeInUpCenter 1s ease-out 0.6s;">
+      Story
     </div>
   </div>
 
-  
-  <!-- Dear to -->
-  <div style="position: absolute; top: 67%; left: 50%; transform: translate(-50%, 0); color: white; font-size: 2rem; animation: fadeInUpCenter 1s ease-out 0.8s;">
+  <!-- Pembungkus posisi tengah -->
+<div style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%);">
+  <!-- Elemen teks, hanya animasi vertikal -->
+  <div style="animation: fadeInUpOnly 1s ease-out 0.8s; font-size: 2rem; color: white;">
     Dear to: Mr./Mrs./Ms.
   </div>
+</div>
+
 
   <!-- Tombol Open Invitation -->
   <a href="#" onclick="openInvitation()" style="position: absolute; top: 72%; left: 50%; transform: translate(-50%, 0); display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 36px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.3rem; border-radius: 8px; text-decoration: none; white-space: nowrap; animation: fadeInUpCenter 1s ease-out 1s;">
