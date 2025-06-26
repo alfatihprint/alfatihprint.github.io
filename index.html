@@ -29,9 +29,8 @@
 
 </style>
 
-<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; overflow: hidden;">
-  <!-- Background image -->
-  <img src="assets/foto-cover.png" alt="Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+
+<section id="cover-slide" style="width: 100vw; height: 100vh; position: relative; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
   
   <!-- Teks My Magical Story -->
   <!-- Teks "My Magical Story" -->
@@ -106,9 +105,9 @@
 
 <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
 
-<section id="slide-1" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
-  <!-- Background full foto -->
-  <img src="assets/save-the-date.png" alt="Save The Date" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+
+
+<section id="slide-1" style="width: 100vw; height: 100vh; position: relative; background-image: url('assets/save-the-date.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
 
   <!-- Efek daun gugur -->
   <script>
@@ -119,7 +118,7 @@
       leaf.style.top = `${-Math.random() * 100}px`;
       leaf.style.left = `${Math.random() * 100}vw`;
       leaf.style.width = "30px";
-      leaf.style.opacity = "0.6";
+      leaf.style.opacity = "0.4";
       leaf.style.zIndex = "1";
       leaf.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
       document.currentScript.parentElement.appendChild(leaf);
@@ -130,39 +129,30 @@
       0% { transform: translateY(0); opacity: 0.6; }
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 
-  <!-- Teks kanan atas -->
-  <div style="position: absolute; top: 4%; right: 5%; text-align: right; color: white;">
-    <div style="font-family: 'Better Saturday', cursive; font-size: 7rem; animation: fadeInUp 1s ease-out 0.3s;">The Wedding of</div>
+  <!-- Teks di kanan atas -->
+  <div style="position: absolute; top: 6%; right: 5%; text-align: right; color: white; z-index: 2;">
+    <div style="font-family: 'Better Saturday', cursive; font-size: 6.5rem; animation: fadeInUp 1s ease-out 0.3s;">The Wedding of</div>
     <div style="font-family: 'Times New Roman', serif; font-size: 3rem; animation: fadeInUp 1s ease-out 0.6s;">- IRFAN & LENA -</div>
-    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; animation: fadeInUp 1s ease-out 0.9s;">06.07.2025</div>
+    <div style="font-family: 'Times New Roman', serif; font-size: 2.5rem; animation: fadeInUp 1s ease-out 0.9s;">06.07.2025</div>
 
     <!-- Tombol Save the Date -->
     <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+Lena+%26+Irfan&dates=20250706T010000Z/20250706T090000Z&details=Alamat%3A+Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut&location=Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut" 
-   target="_blank"
-   style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.3); padding: 30px 60px; border-radius: 8px; margin-top: 10px; text-decoration: none; color: #333; font-weight: bold; font-size: 2rem; animation: fadeInUp 1s ease-out 1.2s;">
-   <img src="assets/kalender.png" alt="Kalender" style="width: 60px; height: 60px;"> Save the Date
+       target="_blank"
+       style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.5); padding: 20px 40px; border-radius: 8px; margin-top: 15px; text-decoration: none; color: #000; font-weight: bold; font-size: 1.6rem; animation: fadeInUp 1s ease-out 1.2s;">
+      <img src="assets/kalender.png" alt="Kalender" style="width: 40px; height: 40px;"> Save the Date
     </a>
-
-  <!-- Teks kanan atas -->
-<div style="position: absolute; top: 4%; right: 5%; ...">
-  ...
-</div>
-
-<!-- Kutipan ayat PISAH di bawah -->
-<div style="position: absolute; bottom: 4%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px;">
-  <div style="color: white; font-family: 'Times New Roman', serif; font-style: italic; font-size: 2rem; text-align: center; animation: fadeInUpOnly 1s ease-out 1.2s;">
-    “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”<br>
-    <strong>QS. Ar-Rum:21</strong>
   </div>
-</div>
 
+  <!-- Kutipan ayat di bawah tengah -->
+  <div style="position: absolute; bottom: 3%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 2rem; color: white; animation: fadeInUp 1s ease-out 1.5s; z-index: 2;">
+    “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”<br>
+    <strong>– QS. Ar-Rum:21</strong>
+  </div>
 
-<style>
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(60px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-</style>
-
+</section>
