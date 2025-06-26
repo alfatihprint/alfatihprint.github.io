@@ -28,3 +28,63 @@
     }
   }
 </style>
+
+<body class="lock-scroll">
+
+<!-- 🎵 Audio -->
+<audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
+
+<!-- ✅ COVER SLIDE -->
+<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
+  
+  <!-- "My Magical Story" -->
+  <div style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); text-align: center; color: white;">
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; animation: fadeInUp 1s ease-out 0.2s;">My</div>
+    <div style="font-family: 'Better Saturday', cursive; font-size: 8rem; animation: fadeInUp 1s ease-out 0.4s;">Magical</div>
+    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; animation: fadeInUp 1s ease-out 0.6s;">Story</div>
+  </div>
+
+  <!-- Dear to -->
+  <div style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%); font-size: 2rem; color: white; animation: fadeInUp 1s ease-out 0.8s;">
+    Dear to: Mr./Mrs./Ms.
+  </div>
+
+  <!-- Open Invitation Button -->
+  <div style="position: absolute; top: 72%; left: 50%; transform: translateX(-50%); animation: fadeInUp 1s ease-out 1s;">
+    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 20px 40px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.5rem; border-radius: 8px; text-decoration: none;">
+      <img src="assets/amplop.png" alt="Envelope" width="40" height="30"> Open Invitation
+    </a>
+  </div>
+
+  <!-- Maaf teks -->
+  <div style="position: absolute; top: 79%; left: 50%; transform: translateX(-50%); font-size: 1rem; color: white; animation: fadeInUp 1s ease-out 1.2s;">
+    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
+  </div>
+
+  <!-- Nama Irfan & Lena -->
+  <div style="position: absolute; top: 83%; left: 50%; transform: translateX(-50%); font-size: 3.5rem; font-family: 'Times New Roman', serif; color: white; white-space: nowrap; animation: fadeInUp 1s ease-out 1.4s;">
+    – IRFAN & LENA –
+  </div>
+</section>
+
+<!-- ✅ SLIDE 1 -->
+<section id="slide-1" style="width: 100vw; height: 100vh; background-image: url('assets/save-the-date.png'); background-size: cover; background-position: center; position: relative; overflow: hidden;">
+  <!-- Lanjut isi sesuai sebelumnya... -->
+</section>
+
+<!-- ✅ SLIDE 2 -->
+<section id="slide-2"> ... </section>
+
+<script>
+  function openInvitation() {
+    document.body.classList.remove('lock-scroll');
+    document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
+    const audio = document.getElementById('bgm');
+    if (audio) {
+      audio.currentTime = 16.7;
+      audio.play();
+    }
+  }
+</script>
+
+</body>
