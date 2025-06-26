@@ -17,16 +17,23 @@
     overflow: hidden;
   }
 
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(60px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  @keyframes fadeInUpCenterFix {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 60px);
   }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.anim-up-center {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: fadeInUpCenterFix 1s ease-out forwards;
+  opacity: 0;
+}
 </style>
 
 <body class="lock-scroll">
@@ -41,39 +48,31 @@
 <div style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); text-align: center; color: white;">
   
   <!-- MY -->
-  <div style="position: relative; left: -40px; animation: fadeInUpOnly 1s ease-out 0.2s; font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 0.1;">
+  <div style="position: relative; left: -40px; animation: fadeInUpCenterFix 1s ease-out 0.2s; font-family: 'Times New Roman', serif; font-size: 3rem; line-height: 0.1;">
     My
   </div>
 
   <!-- MAGICAL -->
-  <div style="animation: fadeInUpOnly 1s ease-out 0.4s; font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1;">
+  <div style="animation: fadeInUpCenterFix 1s ease-out 0.4s; font-family: 'Better Saturday', cursive; font-size: 8rem; line-height: 1;">
     Magical
   </div>
 
   <!-- STORY -->
-  <div style="position: relative; left: 60px; animation: fadeInUpOnly 1s ease-out 0.6s; font-family: 'Times New Roman', serif; font-size: 3rem; line-height: -2;">
+  <div style="position: relative; left: 60px; animation: fadeInUpCenterFix 1s ease-out 0.6s; font-family: 'Times New Roman', serif; font-size: 3rem; line-height: -2;">
     Story
   </div>
 </div>
 
-    <!-- Dear to -->
-    <!-- Pembungkus posisi tengah -->
-<div style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%);">
-  <!-- Elemen teks, hanya animasi vertikal -->
-  <div style="animation: fadeInUpOnly 1s ease-out 0.8s; font-size: 2rem; color: white;">
-    Dear to: Mr./Mrs./Ms.
-  </div>
+<!-- Teks Dear to -->
+<div class="anim-up-center" style="top: 67%; font-size: 2rem; color: white; animation-delay: 0.8s;">
+  Dear to: Mr./Mrs./Ms.
 </div>
 
- <!-- Open Invitation Button --> 
-  <!-- Pembungkus posisi tengah -->
-<div style="position: absolute; top: 72%; left: 50%; transform: translateX(-50%);">
-  <!-- Elemen teks, hanya animasi vertikal -->
-  <div style="animation: fadeInUpOnly 1s ease-out 1s; ">
-    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none; white-space: nowrap; ">
-     <img src="assets/amplop.png" alt="Envelope" width="60" height="40"> Open Invitation
+<!-- Tombol Open Invitation -->
+<div class="anim-up-center" style="top: 72%; animation-delay: 1s;">
+  <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none; white-space: nowrap;">
+    <img src="assets/amplop.png" alt="Envelope" width="60" height="40"> Open Invitation
   </a>
-  </div>
 </div>
 
   <!-- Maaf teks -->
