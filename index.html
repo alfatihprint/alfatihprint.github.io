@@ -59,87 +59,136 @@
     width: 100vw;
     height: 100%;
     overflow-x: hidden;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body.lock-scroll {
-    overflow: hidden;
-  }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Irfan & Lena</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body.lock-scroll {
+      overflow: hidden;
+    }
 
-  /* 🎞 Efek terbit dari bawah ke tengah */
-  @keyframes fadeInUpCenterFix {
-    0% {
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(80px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade {
       opacity: 0;
-      transform: translate(-50%, 100px);
+      animation: fadeInUp 2.5s ease-out forwards;
     }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, 0);
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 0.6; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
-  }
-
-  .anim-up-center {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    opacity: 0;
-    animation: fadeInUpCenterFix 2.2s ease-out forwards;
-  }
-</style>
-
+  </style>
+</head>
 <body class="lock-scroll">
 
-<!-- 🎵 Audio -->
-<audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
+  <!-- 🎵 AUDIO -->
+  <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
 
-<!-- ✅ COVER SLIDE -->
-<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; overflow: hidden;">
-  <!-- Background sebagai full image -->
-  <img src="assets/foto-cover.png" alt="Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"/>
+  <!-- ✅ COVER SLIDE -->
+  <section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
 
-  <!-- MY -->
-  <div class="anim-up-center" style="top: 8%; animation-delay: 0.4s; font-family: 'Times New Roman', serif; font-size: 3rem; color: white;">
-    My
-  </div>
+    <!-- MY MAGICAL STORY -->
+    <div class="fade" style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); font-family: 'Times New Roman', serif; font-size: 3rem; color: white; animation-delay: 0.2s;">My</div>
+    <div class="fade" style="position: absolute; top: 9%; left: 50%; transform: translateX(-50%); font-family: 'Better Saturday', cursive; font-size: 8rem; color: white; animation-delay: 0.5s;">Magical</div>
+    <div class="fade" style="position: absolute; top: 16%; left: 50%; transform: translateX(-50%); font-family: 'Times New Roman', serif; font-size: 3rem; color: white; animation-delay: 0.8s;">Story</div>
 
-  <!-- MAGICAL -->
-  <div class="anim-up-center" style="top: 9.5%; animation-delay: 0.8s; font-family: 'Better Saturday', cursive; font-size: 8rem; color: white;">
-    Magical
-  </div>
+    <!-- Dear -->
+    <div class="fade" style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%); font-size: 2rem; color: white; animation-delay: 1.1s;">
+      Dear to: Mr./Mrs./Ms.
+    </div>
 
-  <!-- STORY -->
-  <div class="anim-up-center" style="top: 17.5%; animation-delay: 1.2s; font-family: 'Times New Roman', serif; font-size: 3rem; color: white;">
-    Story
-  </div>
+    <!-- Tombol Open Invitation -->
+    <div class="fade" style="position: absolute; top: 72%; left: 50%; transform: translateX(-50%); animation-delay: 1.4s;">
+      <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none; white-space: nowrap;">
+        <img src="assets/amplop.png" alt="Envelope" width="60" height="40"> Open Invitation
+      </a>
+    </div>
 
-  <!-- Dear to -->
-  <div class="anim-up-center" style="top: 67%; animation-delay: 1.8s; font-size: 2rem; color: white;">
-    Dear to: Mr./Mrs./Ms.
-  </div>
+    <!-- Maaf Nama -->
+    <div class="fade" style="position: absolute; top: 79%; left: 50%; transform: translateX(-50%); font-size: 1rem; color: white; animation-delay: 1.7s;">
+      Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
+    </div>
 
-  <!-- Tombol Open Invitation -->
-  <div class="anim-up-center" style="top: 72%; animation-delay: 2.2s;">
-    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none; white-space: nowrap;">
-      <img src="assets/amplop.png" alt="Envelope" width="60" height="40"> Open Invitation
-    </a>
-  </div>
+    <!-- Nama Irfan & Lena -->
+    <div class="fade" style="position: absolute; top: 82%; left: 50%; transform: translateX(-50%); font-size: 4.5rem; font-family: 'Times New Roman', cursive; white-space: nowrap; color: white; animation-delay: 2s;">
+      – IRFAN & LENA –
+    </div>
+  </section>
 
-  <!-- Maaf teks -->
-  <div class="anim-up-center" style="top: 79%; animation-delay: 2.6s; font-size: 1rem; color: white;">
-    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
-  </div>
+  <!-- ✅ SLIDE 1 -->
+  <section id="slide-1" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
+    <img src="assets/save-the-date.png" alt="Save The Date" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
 
-  <!-- Nama IRFAN & LENA -->
-  <div class="anim-up-center" style="top: 82%; animation-delay: 3s; font-size: 4.5rem; color: white; white-space: nowrap; font-family: 'Times New Roman', cursive;">
-    – IRFAN & LENA –
-  </div>
-</section>
+    <!-- Daun gugur -->
+    <script>
+      for (let i = 0; i < 20; i++) {
+        const leaf = document.createElement("img");
+        leaf.src = "assets/daun-emas.png";
+        leaf.style.position = "absolute";
+        leaf.style.top = `${-Math.random() * 100}px`;
+        leaf.style.left = `${Math.random() * 100}vw`;
+        leaf.style.width = "30px";
+        leaf.style.opacity = "0.4";
+        leaf.style.zIndex = "1";
+        leaf.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
+        document.currentScript.parentElement.appendChild(leaf);
+      }
+    </script>
 
+    <!-- Teks kanan atas -->
+    <div style="position: absolute; top: 3%; right: 5%; text-align: right; color: white; z-index: 2;">
+      <div class="fade" style="font-family: 'Better Saturday', cursive; font-size: 6.5rem; animation-delay: 0.5s;">The Wedding of</div>
+      <div class="fade" style="font-family: 'Times New Roman', serif; font-size: 3rem; animation-delay: 1s;">- IRFAN & LENA -</div>
+      <div class="fade" style="font-family: 'Times New Roman', serif; font-size: 2.5rem; animation-delay: 1.5s;">06.07.2025</div>
+
+      <!-- Tombol Save the Date -->
+      <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+Lena+%26+Irfan&dates=20250706T010000Z/20250706T090000Z&details=Alamat%3A+Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut&location=Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut"
+         target="_blank"
+         class="fade"
+         style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.5); padding: 30px 40px; border-radius: 8px; margin-top: 15px; text-decoration: none; color: #000; font-weight: bold; font-size: 2rem; animation-delay: 2s;">
+        <img src="assets/kalender.png" alt="Kalender" style="width: 60px; height: 60px;"> Save the Date
+      </a>
+    </div>
+
+    <!-- Kutipan ayat -->
+    <div class="fade" style="position: absolute; bottom: 24%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 2rem; color: white; z-index: 2; animation-delay: 2.5s;">
+      “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang...”<br>
+      <strong>– QS. Ar-Rum:21 -</strong>
+    </div>
+  </section>
+
+  <script>
+    function openInvitation() {
+      document.body.classList.remove('lock-scroll');
+      document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
+      const audio = document.getElementById('bgm');
+      if (audio) {
+        audio.currentTime = 16.9;
+        audio.play();
+      }
+    }
+  </script>
+</body>
+</html>
 
 
 <!-- ✅ SLIDE 1 -->
