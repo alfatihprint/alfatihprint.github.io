@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Irfan & Lena</title>
+  <meta charset="UTF-8">
+  <title>Irfan & Lena Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT & STYLING -->
   <style>
     html, body {
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: 100%;
-      overflow-x: hidden;
       scroll-behavior: smooth;
+      font-family: 'Times New Roman', serif;
+      overflow-x: hidden;
+    }
+
+    *, *::before, *::after {
       box-sizing: border-box;
     }
-    * { box-sizing: border-box; }
 
     body.lock-scroll {
       overflow: hidden;
@@ -27,108 +31,165 @@
 
     .fade {
       opacity: 0;
-      animation: fadeInUp 1.5s ease-out forwards;
+      animation: fadeInUp 1.2s ease-out forwards;
     }
 
     @keyframes fall {
       0% { transform: translateY(0); opacity: 0.6; }
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
+
+    section {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-title {
+      font-family: 'Better Saturday', cursive;
+      font-size: 6.5rem;
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      animation-delay: 0.2s;
+    }
+
+    .fade.delay-1 { animation-delay: 0.4s; }
+    .fade.delay-2 { animation-delay: 0.6s; }
+    .fade.delay-3 { animation-delay: 0.8s; }
+    .fade.delay-4 { animation-delay: 1s; }
+
+    .leaf-fall {
+      position: absolute;
+      top: -100px;
+      width: 30px;
+      opacity: 0.5;
+      z-index: 2;
+      animation: fall linear infinite;
+    }
+
+    .box-nama {
+      padding: 60px 80px;
+      background-color: rgba(30, 30, 30, 0.8);
+      border-radius: 35px;
+      font-size: 4rem;
+      color: white;
+      text-align: center;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
   </style>
 </head>
+
 <body class="lock-scroll">
 
-<!-- 🎵 Audio -->
+<!-- AUDIO -->
 <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
 
 <!-- ✅ COVER SLIDE -->
-<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
+<section id="cover-slide" style="background: url('assets/foto-cover.png') center/cover no-repeat;">
 
-  <!-- My Magical Story -->
-  <div class="fade" style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); animation-delay: 0.3s; text-align: center; color: white; font-family: 'Times New Roman', serif; font-size: 3rem;">
-    My
-  </div>
-  <div class="fade" style="position: absolute; top: 9%; left: 50%; transform: translateX(-50%); animation-delay: 0.6s; text-align: center; color: white; font-family: 'Better Saturday', cursive; font-size: 8rem;">
-    Magical
-  </div>
-  <div class="fade" style="position: absolute; top: 16%; left: 50%; transform: translateX(-50%); animation-delay: 0.9s; text-align: center; color: white; font-family: 'Times New Roman', serif; font-size: 3rem;">
-    Story
-  </div>
+  <!-- MY -->
+  <div class="fade" style="position: absolute; top: 8%; left: 50%; transform: translateX(-50%); font-size: 3rem; color: white;">My</div>
 
-  <!-- Dear to -->
-  <div class="fade" style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%); animation-delay: 1.2s; font-size: 2rem; color: white;">
-    Dear to: Mr./Mrs./Ms.
-  </div>
+  <!-- MAGICAL -->
+  <div class="fade delay-1" style="position: absolute; top: 12%; left: 50%; transform: translateX(-50%); font-size: 8rem; color: white; font-family: 'Better Saturday', cursive;">Magical</div>
 
-  <!-- Tombol -->
-  <div class="fade" style="position: absolute; top: 72%; left: 50%; transform: translateX(-50%); animation-delay: 1.5s;">
-    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 2rem; border-radius: 8px; text-decoration: none;">
-      <img src="assets/amplop.png" alt="Envelope" width="60" height="40"> Open Invitation
+  <!-- STORY -->
+  <div class="fade delay-2" style="position: absolute; top: 21%; left: 50%; transform: translateX(-50%); font-size: 3rem; color: white;">Story</div>
+
+  <!-- Dear To -->
+  <div class="fade delay-3" style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%); font-size: 2rem; color: white;">Dear to: Mr./Mrs./Ms.</div>
+
+  <!-- Button Open Invitation -->
+  <div class="fade delay-4" style="position: absolute; top: 72%; left: 50%; transform: translateX(-50%);">
+    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none;">
+      <img src="assets/amplop.png" width="60"> Open Invitation
     </a>
   </div>
 
-  <!-- Maaf -->
-  <div class="fade" style="position: absolute; top: 79%; left: 50%; transform: translateX(-50%); animation-delay: 1.8s; font-size: 1rem; color: white;">
-    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
-  </div>
+  <!-- Maaf teks -->
+  <div class="fade" style="position: absolute; top: 79%; left: 50%; transform: translateX(-50%); font-size: 1rem; color: white;">Mohon maaf apabila terdapat kesalahan penulisan nama/gelar</div>
 
   <!-- Nama -->
-  <div class="fade" style="position: absolute; top: 82%; left: 50%; transform: translateX(-50%); animation-delay: 2s; font-size: 4.5rem; color: white; font-family: 'Times New Roman', cursive;">
-    – IRFAN & LENA –
-  </div>
+  <div class="fade" style="position: absolute; top: 82%; left: 50%; transform: translateX(-50%); font-size: 4.5rem; color: white;">– IRFAN & LENA –</div>
 </section>
 
 <!-- ✅ SLIDE 1 -->
-<section id="slide-1" style="width: 100vw; height: 100vh; background-image: url('assets/save-the-date.png'); background-size: cover; background-position: center; position: relative; overflow: hidden;">
-
-  <!-- Efek daun gugur -->
-  <script>
-    for (let i = 0; i < 20; i++) {
-      const leaf = document.createElement("img");
-      leaf.src = "assets/daun-emas.png";
-      leaf.style.position = "absolute";
-      leaf.style.top = `${-Math.random() * 100}px`;
-      leaf.style.left = `${Math.random() * 100}vw`;
-      leaf.style.width = "30px";
-      leaf.style.opacity = "0.4";
-      leaf.style.zIndex = "1";
-      leaf.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
-      document.currentScript.parentElement.appendChild(leaf);
-    }
-  </script>
-
-  <!-- Teks kanan atas -->
-  <div class="fade" style="position: absolute; top: 3%; right: 5%; text-align: right; color: white; font-family: 'Better Saturday', cursive; font-size: 6.5rem; animation-delay: 0.3s;">
-    The Wedding of
-  </div>
-  <div class="fade" style="position: absolute; top: 16%; right: 5%; color: white; font-family: 'Times New Roman', serif; font-size: 3rem; animation-delay: 0.6s;">
-    - IRFAN & LENA -
-  </div>
-  <div class="fade" style="position: absolute; top: 23%; right: 5%; color: white; font-family: 'Times New Roman', serif; font-size: 2.5rem; animation-delay: 0.9s;">
-    06.07.2025
+<section id="slide-1" style="background: url('assets/save-the-date.png') center/cover no-repeat;">
+  <div class="fade" style="position: absolute; top: 3%; right: 5%; text-align: right; color: white;">
+    <div style="font-family: 'Better Saturday', cursive; font-size: 6.5rem;">The Wedding of</div>
+    <div style="font-size: 3rem;">- IRFAN & LENA -</div>
+    <div style="font-size: 2.5rem;">06.07.2025</div>
+    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+Lena+%26+Irfan&dates=20250706T010000Z/20250706T090000Z&details=Alamat%3A+Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut&location=Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut"
+      target="_blank"
+      style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.5); padding: 30px 40px; border-radius: 8px; margin-top: 15px; text-decoration: none; color: #000; font-weight: bold; font-size: 2rem;">
+      <img src="assets/kalender.png" width="60"> Save the Date
+    </a>
   </div>
 
-  <!-- Tombol Save the Date -->
-  <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+Lena+%26+Irfan&dates=20250706T010000Z/20250706T090000Z&details=Alamat%3A+Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut&location=Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut"
-     target="_blank"
-     class="fade"
-     style="position: absolute; top: 32%; right: 5%; display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.5); padding: 30px 40px; border-radius: 8px; text-decoration: none; color: #000; font-weight: bold; font-size: 2rem; animation-delay: 1.2s;">
-    <img src="assets/kalender.png" alt="Kalender" style="width: 60px; height: 60px;"> Save the Date
-  </a>
-
-  <!-- Kutipan ayat -->
-  <div class="fade" style="position: absolute; bottom: 24%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 2rem; color: white; animation-delay: 1.5s;">
+  <!-- Ayat Ar-Rum -->
+  <div class="fade" style="position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; text-align: center; color: white; font-style: italic; font-size: 1.5rem;">
     “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”<br>
     <strong>– QS. Ar-Rum:21 -</strong>
   </div>
 </section>
 
+<!-- ✅ SLIDE 2 -->
+<section id="slide-2" style="background: url('assets/foto-lena.png') center/cover no-repeat;">
+  <div class="fade" style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);">
+    <div class="box-nama">LENA NURPADILA</div>
+  </div>
+</section>
+
+<!-- ✅ SLIDE 3 -->
+<section id="slide-3" style="background: url('assets/foto-irfan.png') center/cover no-repeat;">
+  <div class="fade" style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%);">
+    <div class="box-nama">IRFAN NURHAKIM</div>
+  </div>
+</section>
+
+<!-- ✅ SLIDE 4 -->
+<section id="slide-4" style="background-color: #2f2f2f;">
+  <div class="fade" style="text-align: center; color: white; font-family: 'Better Saturday', cursive; font-size: 6.5rem; margin-top: 30px;">Wedding Event</div>
+  <img src="assets/cincin.png" style="width: 80%; max-width: 400px; display: block; margin: 20px auto; border-radius: 20px;">
+
+  <div style="background-color: #444; color: white; margin: 0 auto; padding: 30px; border-radius: 30px; max-width: 90%; position: relative;">
+    <div style="position: absolute; top: 30%; left: -40px; transform: rotate(-90deg); font-size: 3rem;">Akad Nikah</div>
+    <div style="text-align: right;">
+      <div style="font-size: 2rem;">MINGGU</div>
+      <div style="font-size: 4rem;">06</div>
+      <div style="font-size: 2rem;">JUNI 2025</div>
+      <div style="margin-top: 15px;">Pukul 08.00 WIB</div>
+      <div style="margin-top: 15px;">Bertempat di:<br>Kp. Pamoyanan 07/01<br>Desa Sukagalih<br>Kec. Tarogong Kidul<br>Garut</div>
+      <a href="https://maps.app.goo.gl/M5bJusV2Gr7nmWSFA?g_st=aw" target="_blank"
+         style="display: inline-flex; align-items: center; gap: 10px; background: #222; padding: 15px 25px; border-radius: 10px; margin-top: 20px; text-decoration: none; color: white;">
+        <img src="assets/maps.png" style="width: 32px;"> Maps
+      </a>
+    </div>
+  </div>
+</section>
+
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    for (let slide of document.querySelectorAll("section")) {
+      for (let i = 0; i < 20; i++) {
+        const leaf = document.createElement("img");
+        leaf.src = "assets/daun-emas.png";
+        leaf.className = "leaf-fall";
+        leaf.style.left = `${Math.random() * 100}vw`;
+        leaf.style.animationDuration = `${5 + Math.random() * 5}s`;
+        slide.appendChild(leaf);
+      }
+    }
+  });
+
   function openInvitation() {
     document.body.classList.remove('lock-scroll');
-    document.getElementById('cover-slide').style.display = 'none';
     document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
-
     const audio = document.getElementById('bgm');
     if (audio) {
       audio.currentTime = 16.9;
@@ -139,108 +200,3 @@
 
 </body>
 </html>
-
-<!-- ✅ SLIDE 2 -->
-<section id="slide-2" style="width: 100vw; height: 100vh; position: relative; background-image: url('assets/foto-lena.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
-
-  <!-- Efek daun gugur -->
-  <script>
-    for (let i = 0; i < 20; i++) {
-      const leaf = document.createElement("img");
-      leaf.src = "assets/daun-emas.png";
-      leaf.style.position = "absolute";
-      leaf.style.top = `${-Math.random() * 100}px`;
-      leaf.style.left = `${Math.random() * 100}vw`;
-      leaf.style.width = "30px";
-      leaf.style.opacity = "0.5";
-      leaf.style.zIndex = "1";
-      leaf.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
-      document.currentScript.parentElement.appendChild(leaf);
-    }
-  </script>
-
-  <!-- Box Nama -->
-  <div class="fade" style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); animation-delay: 0.4s; z-index: 2;">
-    <div style="padding: 60px 80px; background-color: rgba(30, 30, 30, 0.8); border-radius: 35px; font-family: 'Times New Roman', serif; font-size: 4rem; color: white; text-align: center; white-space: nowrap;">
-      LENA NURPADILA
-    </div>
-  </div>
-
-</section>
-
-<!-- ✅ SLIDE 3 -->
-<section id="slide-3" style="width: 100vw; height: 100vh; position: relative; background-image: url('assets/foto-irfan.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
-
-  <!-- Efek daun gugur -->
-  <script>
-    for (let i = 0; i < 20; i++) {
-      const leaf = document.createElement("img");
-      leaf.src = "assets/daun-emas.png";
-      leaf.style.position = "absolute";
-      leaf.style.top = `${-Math.random() * 100}px`;
-      leaf.style.left = `${Math.random() * 100}vw`;
-      leaf.style.width = "30px";
-      leaf.style.opacity = "0.5";
-      leaf.style.zIndex = "1";
-      leaf.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
-      document.currentScript.parentElement.appendChild(leaf);
-    }
-  </script>
-
-  <!-- Box Nama -->
-  <div class="fade" style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); animation-delay: 0.4s; z-index: 2;">
-    <div style="padding: 60px 80px; background-color: rgba(30, 30, 30, 0.8); border-radius: 35px; font-family: 'Times New Roman', serif; font-size: 4rem; color: white; text-align: center; white-space: nowrap;">
-      IRFAN NURHAKIM
-    </div>
-  </div>
-
-</section>
-
-<!-- ✅ SLIDE 4 -->
-<section id="slide-4" style="width: 100vw; height: 100vh; position: relative; background-color: #2d2d2d; overflow: hidden; color: white; font-family: 'Times New Roman', serif;">
-
-  <!-- Judul Wedding Event -->
-  <div style="position: absolute; top: 5%; left: 50%; transform: translateX(-50%); font-family: 'Better Saturday', cursive; font-size: 6.5rem; text-align: center;">
-    Wedding Event
-  </div>
-
-  <!-- Gambar cincin -->
-  <img src="assets/cincin.png" alt="Cincin" style="position: absolute; top: 18%; left: 50%; transform: translateX(-50%); width: 80%; max-width: 500px; border-radius: 30px;">
-
-  <!-- Box Abu Muda -->
-  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #444; width: 85%; max-width: 700px; padding: 40px 30px; border-radius: 20px; display: flex; flex-direction: row; align-items: flex-start; gap: 20px;">
-
-    <!-- Teks vertikal Akad Nikah -->
-    <div style="writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); font-size: 4rem; font-weight: bold;">
-      Akad Nikah
-    </div>
-
-    <!-- Isi detail kanan -->
-    <div style="flex: 1; text-align: right;">
-
-      <!-- Hari & Tanggal -->
-      <div style="font-size: 2rem; font-weight: bold;">MINGGU</div>
-      <div style="font-size: 4rem; font-weight: bold;">06</div>
-      <div style="font-size: 2rem; font-weight: bold;">JUNI 2025</div>
-
-      <!-- Jam -->
-      <div style="font-size: 1.5rem; margin-top: 20px;">Pukul 08.00 WIB</div>
-
-      <!-- Alamat -->
-      <div style="font-size: 1.5rem; margin-top: 10px;">
-        Bertempat di:<br>
-        Kp. Pamoyanan 07/01<br>
-        Desa Sukagalih<br>
-        Kec. Tarogong Kidul<br>
-        Garut
-      </div>
-
-      <!-- Tombol Maps -->
-      <a href="https://maps.app.goo.gl/M5bJusV2Gr7nmWSFA?g_st=aw" target="_blank" style="display: inline-flex; align-items: center; gap: 12px; background-color: #2d2d2d; padding: 14px 26px; border-radius: 16px; margin-top: 24px; color: white; font-size: 1.5rem; text-decoration: none;">
-        <img src="assets/maps.png" alt="Maps" style="width: 30px; height: 30px;"> Maps
-      </a>
-
-    </div>
-  </div>
-</section>
-
