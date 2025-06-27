@@ -52,48 +52,94 @@
 <!-- 🎵 Audio -->
 <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
 
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body.lock-scroll {
+    overflow: hidden;
+  }
+
+  /* 🎞 Efek terbit dari bawah ke tengah */
+  @keyframes fadeInUpCenterFix {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .anim-up-center {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    animation: fadeInUpCenterFix 2.2s ease-out forwards;
+  }
+</style>
+
+<body class="lock-scroll">
+
+<!-- 🎵 Audio -->
+<audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
+
 <!-- ✅ COVER SLIDE -->
-<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
-  
-    <!-- Teks "My Magical Story" -->  
+<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; overflow: hidden;">
+  <!-- Background sebagai full image -->
+  <img src="assets/foto-cover.png" alt="Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;"/>
+
   <!-- MY -->
- <div class="anim-up-center" style=" top: 8%; text-align: center; color: white; animation-delay: 0.2s; font-family: 'Times New Roman', serif; font-size: 3rem;">
-   My
- </div>
-  
+  <div class="anim-up-center" style="top: 8%; animation-delay: 0.4s; font-family: 'Times New Roman', serif; font-size: 3rem; color: white;">
+    My
+  </div>
+
   <!-- MAGICAL -->
-  <div class="anim-up-center" style=" top: 9%; text-align: center; color: white; animation-delay: 0.4s; font-family: 'Better Saturday', cursive; font-size: 8rem;">
+  <div class="anim-up-center" style="top: 9.5%; animation-delay: 0.8s; font-family: 'Better Saturday', cursive; font-size: 8rem; color: white;">
     Magical
   </div>
 
- <!-- STORY -->
- <div class="anim-up-center" style=" top: 16%; text-align: center; color: white; font-size: 2rem; animation-delay: 0.6s; font-family: 'Times New Roman', serif; font-size: 3rem;">
-   Story
- </div>
-  
-<!-- Teks Dear to -->
-<div class="anim-up-center" style="top: 67%; font-size: 2rem; color: white; animation-delay: 0.8s;">
-  Dear to: Mr./Mrs./Ms.
-</div>
+  <!-- STORY -->
+  <div class="anim-up-center" style="top: 17.5%; animation-delay: 1.2s; font-family: 'Times New Roman', serif; font-size: 3rem; color: white;">
+    Story
+  </div>
 
-<!-- Tombol Open Invitation -->
-<div class="anim-up-center" style="top: 72%; animation-delay: 1s;">
-  <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none; white-space: nowrap;">
-    <img src="assets/amplop.png" alt="Envelope" width="60" height="40"> Open Invitation
-  </a>
-</div>
+  <!-- Dear to -->
+  <div class="anim-up-center" style="top: 67%; animation-delay: 1.8s; font-size: 2rem; color: white;">
+    Dear to: Mr./Mrs./Ms.
+  </div>
+
+  <!-- Tombol Open Invitation -->
+  <div class="anim-up-center" style="top: 72%; animation-delay: 2.2s;">
+    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; justify-content: center; gap: 16px; padding: 26px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.8rem; border-radius: 8px; text-decoration: none; white-space: nowrap;">
+      <img src="assets/amplop.png" alt="Envelope" width="60" height="40"> Open Invitation
+    </a>
+  </div>
 
   <!-- Maaf teks -->
-<div class="anim-up-center" style="top: 79%; font-size: 1rem; color: white; animation-delay: 1.2s;">
-  Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
-</div>
-  
-  <!-- Nama Irfan & Lena -->
- <div class="anim-up-center" style="top: 82%; font-size: 4.5rem; color: white; animation-delay: 1.4s; white-space: nowrap; font-family: 'Times New Roman', cursive;">
-  – IRFAN & LENA –
- </div> 
+  <div class="anim-up-center" style="top: 79%; animation-delay: 2.6s; font-size: 1rem; color: white;">
+    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
+  </div>
 
+  <!-- Nama IRFAN & LENA -->
+  <div class="anim-up-center" style="top: 82%; animation-delay: 3s; font-size: 4.5rem; color: white; white-space: nowrap; font-family: 'Times New Roman', cursive;">
+    – IRFAN & LENA –
+  </div>
 </section>
+
 
 
 <!-- ✅ SLIDE 1 -->
