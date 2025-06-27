@@ -7,33 +7,44 @@
     overflow-x: hidden;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    font-family: 'Times New Roman', serif;
   }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+
   body.lock-scroll {
     overflow: hidden;
   }
 
   @keyframes fadeInUpCenterFix {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 60px);
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 80px); /* lebih jauh dari bawah */
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
   }
-  100% {
-    opacity: 1;
+
+  .anim-up-center {
+    position: absolute;
+    left: 50%;
     transform: translate(-50%, 0);
+    opacity: 0;
+    animation: fadeInUpCenterFix 1.8s ease-out forwards;
   }
-}
-.anim-up-center {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  animation: fadeInUpCenterFix 1s ease-out forwards;
-  opacity: 0;
-}
+
+  /* Efek terbit lambat tambahan dengan delay */
+  .delay-1 { animation-delay: 0.5s; }
+  .delay-2 { animation-delay: 0.8s; }
+  .delay-3 { animation-delay: 1.1s; }
+  .delay-4 { animation-delay: 1.4s; }
+  .delay-5 { animation-delay: 1.7s; }
 </style>
 
 <body class="lock-scroll">
