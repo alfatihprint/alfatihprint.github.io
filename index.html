@@ -156,67 +156,123 @@
   .time-label {
     font-size: 1.2rem;
     margin-top: 5px;
-    font-family: 'Times New Roman', serif;
-    color: white;
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
-  /* Ucapan */
-  .ucapan-box {
-    background: white;
-    color: #1a1a1a;
-    font-family: 'Times New Roman', serif;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 20px;
-    max-height: 300px;
-    overflow-y: auto;
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .ucapan-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-  }
-
-  .ucapan-item small {
-    display: block;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 4px;
-  }
-
-  /* Daun gugur */
-  .leaf {
+  .centered {
     position: absolute;
-    width: 30px;
-    opacity: 0.5;
-    z-index: 1;
-    animation: fall 8s linear infinite;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
   }
 
+  .fade-delay {
+    animation: fadeInUp 1.2s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-delay.delay-1 { animation-delay: 0.2s; }
+  .fade-delay.delay-2 { animation-delay: 0.4s; }
+  .fade-delay.delay-3 { animation-delay: 0.6s; }
+  .fade-delay.delay-4 { animation-delay: 0.8s; }
+  .fade-delay.delay-5 { animation-delay: 1s; }
+  .fade-delay.delay-6 { animation-delay: 1.2s; }
+
+  .btn-invite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  #cover-slide {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url('assets/foto-cover.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
 </style>
 
 </head>
-<body class="lock-scroll">
 
-<!-- SLIDE 1 (Cover Slide) -->
-<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
-  <div class="center-abs fade font-serif font-md white" style="top: 8%; animation-delay: 0.2s;">My</div>
-  <div class="center-abs fade font-script font-xxl white" style="top: 9%; animation-delay: 0.4s;">Magical</div>
-  <div class="center-abs fade font-serif font-md white" style="top: 16%; animation-delay: 0.6s;">Story</div>
-  <div class="center-abs fade font-serif font-sm white" style="top: 67%; animation-delay: 0.8s;">Dear to: Mr./Mrs./Ms.</div>
-  <div class="center-abs fade" style="top: 72%; animation-delay: 1s;">
-    <a href="#" onclick="openInvitation()" class="btn btn-white">
-      <img src="assets/amplop.png" alt="Envelope" width="30"> Open Invitation
+<body class="lock-scroll">
+  
+<!-- ðŸŽµ Audio -->
+<audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
+
+<section id="cover-slide">
+
+  <!-- MY -->
+  <div class="centered fade-delay delay-1" style="top: 8%; font-family: 'Times New Roman', serif; font-size: 2rem; color: white;">
+    My
+  </div>
+
+  <!-- MAGICAL -->
+  <div class="centered fade-delay delay-2" style="top: 12%; font-family: 'Better Saturday', cursive; font-size: 5rem; color: white;">
+    Magical
+  </div>
+
+  <!-- STORY -->
+  <div class="centered fade-delay delay-3" style="top: 20%; font-family: 'Times New Roman', serif; font-size: 2rem; color: white;">
+    Story
+  </div>
+
+  <!-- Dear to -->
+  <div class="centered fade-delay delay-4" style="top: 65%; font-size: 1.2rem; color: white;">
+    Dear to: Mr./Mrs./Ms.
+  </div>
+
+  <!-- Tombol Open Invitation -->
+  <div class="centered fade-delay delay-5" style="top: 72%;">
+    <a href="#" class="btn-invite" onclick="openInvitation()">
+      <img src="assets/amplop.png" alt="Envelope" width="32" height="24"> Open Invitation
     </a>
   </div>
-  <div class="center-abs fade font-xs white" style="top: 79%; animation-delay: 1.2s;">
+
+  <!-- Maaf -->
+  <div class="centered fade-delay delay-6" style="top: 78%; font-size: 0.9rem; color: white;">
     Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
   </div>
-  <div class="center-abs fade font-lg font-serif white" style="top: 82%; animation-delay: 1.4s;">
+
+  <!-- Nama Pasangan -->
+  <div class="centered fade-delay delay-6" style="top: 83%; font-size: 2.5rem; color: white; font-family: 'Times New Roman', serif;">
     – IRFAN & LENA –
   </div>
+
 </section>
+
 
 <!--  SLIDE 1 belum perbaikan-->
 <section id="slide-1" style="width: 100vw; height: 100vh; background-image: url('assets/save-the-date.png'); background-size: cover; background-position: center; position: relative; overflow: hidden;">
