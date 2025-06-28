@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Irfan & Lena</title>
-  <!-- Font Better Saturday (CDN Google Fonts atau file lokal jika punya) -->
-  <link href="https://fonts.cdnfonts.com/css/better-saturday" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       margin: 0;
@@ -16,137 +13,90 @@
       overflow-x: hidden;
       scroll-behavior: smooth;
       box-sizing: border-box;
-      font-family: 'Times New Roman', serif;
     }
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body.lock-scroll {
       overflow: hidden;
     }
-       
+
     @keyframes fadeInUp {
-    from {
-    opacity: 0;
-    transform: translateY(60px);
+      0% { opacity: 0; transform: translateY(80px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
-    to {
-    opacity: 1;
-    transform: translateY(0);
-     }
-    }
-    .centered {
+
+    .fade-up {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-    }
-
-    .fade-delay {
+      transform: translate(-50%, 0);
       opacity: 0;
-      animation: fadeInUp 1.2s ease-out forwards;
+      animation: fadeInUp 1s ease-out forwards;
     }
-
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
-    .delay-3 { animation-delay: 0.6s; }
-    .delay-4 { animation-delay: 0.8s; }
-    .delay-5 { animation-delay: 1s; }
-    .delay-6 { animation-delay: 1.2s; }
-
-    .btn-invite {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.85);
-      padding: 16px 30px;
-      border-radius: 8px;
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
   </style>
 </head>
 
 <body class="lock-scroll">
+  <!-- 🎵 AUDIO -->
+  <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
 
-<!-- 🎵 AUDIO -->
-<audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
+  <!-- ✅ COVER-SLIDE -->
+  <section id="cover-slide" style="position: relative; width: 100vw; height: 100vh;
+           background-image: url('assets/foto-cover.png'); background-size: cover;
+           background-position: center; background-repeat: no-repeat; overflow: hidden;">
 
+    <!-- MY -->
+    <div class="fade-up" style="top: 8%; font-size: 1rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 0.2s;">
+      My
+    </div>
 
-<!-- ✅ COVER SLIDE -->
-<section id="cover-slide" style="width: 100vw; height: 100vh; position: relative; overflow: hidden;">
-  
-  <!-- ✅ FOTO COVER FULL -->
-  <img src="assets/foto-cover.png"
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-              object-fit: cover; object-position: center 25%; z-index: -1;" 
-       alt="Background">  
-  
-  <!-- ✅ TEKS MY -->
-  <div style="position: absolute; top: 8%; left: 42%; transform: translateX(-50%, 0); font-size: 1rem; font-family: 'Times New Roman', serif; animation: fadeInUp 1s ease-out 0.2s;color: white;">
-    My
-  </div>
+    <!-- MAGICAL -->
+    <div class="fade-up" style="top: 9%; font-size: 3rem; color: white; font-family: 'Better Saturday', cursive; animation-delay: 0.4s;">
+      Magical
+    </div>
 
-  <!-- ✅ TEKS MAGICAL -->
-  <div style="position: absolute; top: 9%; left: 50%; transform: translateX(-50%, 0);font-size: 3rem; font-family: 'Better Saturday', cursive; animation: fadeInUp 1s ease-out 0.4s;color: white;">
-    Magical
-  </div>
+    <!-- STORY -->
+    <div class="fade-up" style="top: 17%; font-size: 1rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 0.6s;">
+      Story
+    </div>
 
-  <!-- ✅ TEKS STORY -->
-  <div style="position: absolute; top: 17%; left: 58%; transform: translateX(-50%, 0);font-size: 1rem; font-family: 'Times New Roman', serif; animation: fadeInUp 1s ease-out 0.6s;color: white;"
-    >Story
-  </div>
+    <!-- DEAR TO -->
+    <div class="fade-up" style="top: 67%; font-size: 0.65rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 0.8s;">
+      Dear to: Mr./Mrs./Ms.
+    </div>
 
-  <!-- ✅ TEKS DEAR TO -->
-  <div style="position: absolute; top: 67%; left: 50%; transform: translateX(-50%, 0); font-size: 0.65rem; animation: fadeInUp 1s ease-out 0.8s;color: white; font-family: 'Times New Roman', serif;">
-    Dear to: Mr./Mrs./Ms.
-  </div>
+    <!-- TOMBOL OPEN INVITATION -->
+    <div class="fade-up" style="top: 71%; animation-delay: 1s;">
+      <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center;
+         justify-content: center; gap: 10px; padding: 14px 28px; background: rgba(255,255,255,0.85);
+         color: #333; font-weight: bold; font-size: 1rem; border-radius: 8px; text-decoration: none;">
+        <img src="assets/amplop.png" alt="Envelope" width="30" height="24"> Open Invitation
+      </a>
+    </div>
 
-  <!-- ✅ TOMBOL OPEN INVITATION -->
-  <div style="position: absolute; top: 71%; left: 50%; transform: translateX(-50%, 0); animation: fadeInUp 1s ease-out 1s;">
-    <a href="#" onclick="openInvitation()" style="
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background: rgba(255,255,255,0.85);
-      color: #333;
-      font-weight: bold;
-      font-size: 0.55rem;
-      border-radius: 8px;
-      text-decoration: none;
-    ">
-      <img src="assets/amplop.png" alt="Envelope" width="30" height="24"> Open Invitation
-    </a>
-  </div>
+    <!-- TEKS MAAF -->
+    <div class="fade-up" style="top: 77%; font-size: 0.45rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1.2s;">
+      Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
+    </div>
 
-  <!-- ✅ TEKS MAAF -->
-  <div style="position: absolute; top: 77%; left: 50%; transform: translateX(-50%, 0); font-size: 0.45rem; animation: fadeInUp 1s ease-out 1.2s;color: white; font-family: 'Times New Roman', serif;">
-    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
-  </div>
+    <!-- NAMA IRFAN & LENA -->
+    <div class="fade-up" style="top: 82%; font-size: 1.75rem; color: white; font-family: 'Times New Roman', cursive; animation-delay: 1.4s;">
+      – IRFAN & LENA –
+    </div>
+  </section>
 
-  <!-- ✅ NAMA IRFAN & LENA -->
-  <div style="position: absolute; top: 82%; left: 50%; transform: translateX(-50%, 0); font-size: 1.75rem; font-family: 'Times New Roman', serif; animation: fadeInUp 1s ease-out 1.4s; white-space: nowrap; color: white;">
-    – IRFAN & LENA –
-  </div>
-</section>
-
-
-<!-- ✅ JS -->
-<script>
-  document.body.classList.add('lock-scroll');
-
-  function openInvitation() {
-    document.body.classList.remove('lock-scroll');
-    document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
-
-    const audio = document.getElementById('bgm');
-    if (audio) {
-      audio.currentTime = 16.9;
-      audio.play();
+  <script>
+    function openInvitation() {
+      document.body.classList.remove('lock-scroll');
+      document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
+      const audio = document.getElementById('bgm');
+      if (audio) {
+        audio.currentTime = 16.9;
+        audio.play();
+      }
     }
-  }
-</script>
+  </script>
+</body>
+</html>
