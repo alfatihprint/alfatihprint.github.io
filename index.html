@@ -35,18 +35,24 @@
       overflow: hidden;
     }
     
-    .fade-up {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      animation: fadeInUp 3s ease-out forwards;
-    }
+     @keyframes fadeInUpCenterFix {
+     0% {
+     opacity: 0;
+     transform: translate(-50%, 60px);
+   }
+     100% {
+     opacity: 1;
+     transform: translate(-50%, 0);
+       }
+     }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translate(-50%, 80px); }
-      100% { opacity: 1; transform: translate(-50%, 0); }
-    }
+     .anim-up-center {
+     position: absolute;
+     left: 50%;
+     transform: translate(-50%, 0);
+     animation: fadeInUpCenterFix 1.5s ease-out forwards;
+     opacity: 0;
+     }
 
     a.invite-btn {
       display: inline-flex;
@@ -73,27 +79,27 @@
   <section id="cover-slide">
 
     <!-- MY -->
-    <div class="fade-up" style="left: 45%; transform: translateX(-50%);top: 10%; font-size: 1rem; font-family: 'Times New Roman', serif; color: white; animation-delay: 0.4s;">
+    <div class="anim-up-center" style="left: 45%; transform: translateX(-50%);top: 10%; font-size: 1rem; font-family: 'Times New Roman', serif; color: white; animation-delay: 0.4s;">
       My
     </div>
 
     <!-- MAGICAL -->
-    <div class="fade-up" style="position: absolute; left: 50%; transform: translateX(-50%);top: 7%; font-size: 3rem; font-family: 'Better Saturday', cursive; color: white; animation-delay: 0.6s;">
+    <div class="anim-up-center" style="position: absolute; left: 50%; transform: translateX(-50%);top: 7%; font-size: 3rem; font-family: 'Better Saturday', cursive; color: white; animation-delay: 0.6s;">
       Magical
     </div>
 
     <!-- STORY -->
-    <div class="fade-up" style="left: 58.5%; transform: translateX(-50%); top: 18%; font-size: 1rem; font-family: 'Times New Roman', serif; color: white; animation-delay: 0.8s;">
+    <div class="anim-up-center" style="left: 58.5%; transform: translateX(-50%); top: 18%; font-size: 1rem; font-family: 'Times New Roman', serif; color: white; animation-delay: 0.8s;">
       Story
     </div>
 
     <!-- Dear To -->
-    <div class="fade-up" style="top: 66%; font-size: 0.9rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1s;">
+    <div class="anim-up-center" style="top: 66%; font-size: 0.9rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1s;">
       Dear to: Mr./Mrs./Ms.
     </div>
 
     <!-- Open Invitation Button -->
-    <div class="fade-up" style="top: 70%; animation-delay: 1.2s;white-space: nowrap">
+    <div class="anim-up-center" style="top: 70%; animation-delay: 1.2s;white-space: nowrap">
       <a href="javascript:void(0);" onclick="openInvitation()" class="invite-btn">
         <img src="assets/amplop.png" alt="Amplop" width="28" height="24"> Open Invitation
       </a>
@@ -101,12 +107,12 @@
 
 
     <!-- Maaf Nama -->
-    <div class="fade-up" style="top: 78%; font-size: 0.45rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1.4s;white-space: nowrap">
+    <div class="anim-up-center" style="top: 78%; font-size: 0.45rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1.4s;white-space: nowrap">
       Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
     </div>
 
     <!-- Nama Irfan & Lena -->
-    <div class="fade-up" style="top: 82%; font-size: 2rem; color: white; font-family: 'Times New Roman', cursive; animation-delay: 1.6s;white-space: nowrap">
+    <div class="anim-up-center" style="top: 82%; font-size: 2rem; color: white; font-family: 'Times New Roman', cursive; animation-delay: 1.6s;white-space: nowrap">
       – IRFAN & LENA –
     </div>
 
@@ -167,24 +173,29 @@
   
 <script>
   function openInvitation() {
-    // Hapus scroll lock
     document.body.classList.remove('lock-scroll');
-    
-    // Scroll ke slide pertama
-    document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
 
-    // Putar musik
+    // Sembunyikan cover agar tidak bisa scroll balik
+    const cover = document.getElementById('cover-slide');
+    if (cover) {
+      cover.style.display = 'none';
+    }
+
+    // Scroll ke slide pertama
+    const slide1 = document.getElementById('slide-1');
+    if (slide1) {
+      slide1.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Mainkan musik
     const audio = document.getElementById('bgm');
     if (audio) {
-      audio.currentTime = 16.9; // mulai dari detik 16 lagu
-      audio.play().catch(e => {
-        console.warn("Audio play prevented by browser:", e);
-      });
+      audio.currentTime = 16.9;
+      audio.play().catch(e => console.warn('Autoplay error:', e));
     }
   }
 
-  // Optional: agar autoplay bisa jalan di mobile saat ada gesture
-  document.addEventListener("click", () => {
+  document.addEventListener('click', () => {
     const audio = document.getElementById('bgm');
     if (audio && audio.paused) {
       audio.play().catch(() => {});
