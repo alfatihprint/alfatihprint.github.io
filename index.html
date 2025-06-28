@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Irfan & Lena</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Times+New+Roman&display=swap" rel="stylesheet" />
   <link href="https://fonts.cdnfonts.com/css/better-saturday" rel="stylesheet">
 
   <style>
@@ -28,16 +25,9 @@
     }
 
     @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(80px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
     }
-
     .centered {
       position: absolute;
       left: 50%;
@@ -91,39 +81,126 @@
 ">
 
   <!-- MY -->
-  <div class="centered fade-delay delay-1" style="top: 8%; font-size: 2rem; color: white;">
+  <div style="
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  ">
     My
   </div>
 
   <!-- MAGICAL -->
-  <div class="centered fade-delay delay-2" style="top: 12%; font-family: 'Better Saturday', cursive; font-size: 6rem; color: white;">
+  <div style="
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    font-family: 'Better Saturday', cursive;
+    color: white;
+    text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+  ">
     Magical
   </div>
 
   <!-- STORY -->
-  <div class="centered fade-delay delay-3" style="top: 20%; font-size: 2rem; color: white;">
+  <div style="
+    position: absolute;
+    top: 21%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+  ">
     Story
   </div>
 
-  <!-- Dear to -->
-  <div class="centered fade-delay delay-4" style="top: 65%; font-size: 1.3rem; color: white;">
+  <!-- DEAR TO -->
+  <div style="
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.3rem;
+    color: white;
+    text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
+  ">
     Dear to: Mr./Mrs./Ms.
   </div>
 
-  <!-- Tombol Open Invitation -->
-  <div class="centered fade-delay delay-5" style="top: 72%;">
-    <a href="#" class="btn-invite" onclick="openInvitation()">
-      <img src="assets/amplop.png" alt="Envelope" width="32" height="24"> Open Invitation
+  <!-- OPEN INVITATION -->
+  <div style="
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+  ">
+    <a href="#" onclick="openInvitation()" style="
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.85);
+      padding: 16px 28px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+    ">
+      <img src="assets/amplop.png" alt="Envelope" width="28" height="22"> Open Invitation
     </a>
   </div>
 
-  <!-- Maaf Teks -->
-  <div class="centered fade-delay delay-6" style="top: 79%; font-size: 0.9rem; color: white;">
+  <!-- MAAF -->
+  <div style="
+    position: absolute;
+    top: 79%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: white;
+    text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+  ">
     Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
   </div>
 
-  <!-- Nama Pasangan -->
-  <div class="centered fade-delay delay-6" style="top: 84%; font-size: 2.5rem; color: white;">
+  <!-- NAMA PASANGAN -->
+  <div style="
+    position: absolute;
+    top: 84%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', cursive;
+    color: white;
+    white-space: nowrap;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1.4s;
+    opacity: 0;
+  ">
     – IRFAN & LENA –
   </div>
 
