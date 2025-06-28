@@ -1,264 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Irfan & Lena</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Times+New+Roman&display=swap" rel="stylesheet" />
-  <link href="https://fonts.cdnfonts.com/css/better-saturday" rel="stylesheet">
-  
-<style>
-  /* Reset dan layout umum */
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body.lock-scroll {
-    overflow: hidden;
-  }
-
-  /* Animasi efek terbit */
-  @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(80px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade {
-    opacity: 0;
-    animation: fadeInUp 1.2s ease-out forwards;
-  }
-
-  /* Efek daun gugur */
-  @keyframes fall {
-    0% { transform: translateY(0); opacity: 0.6; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-  }
-
-  /* Layout posisi tengah */
-  .center-abs {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
-
-  /* Ukuran font responsif */
-  .font-xxl { font-size: clamp(3rem, 9vw, 7rem); }
-  .font-xl  { font-size: clamp(2.5rem, 8vw, 5rem); }
-  .font-lg  { font-size: clamp(2rem, 6vw, 4rem); }
-  .font-md  { font-size: clamp(1.5rem, 4vw, 2.5rem); }
-  .font-sm  { font-size: clamp(1rem, 3vw, 1.5rem); }
-  .font-xs  { font-size: clamp(0.9rem, 2vw, 1.2rem); }
-
-  /* Warna */
-  .white { color: white; }
-  .dark { color: #1a1a1a; }
-  .bg-dark { background-color: #1a1a1a; }
-  .bg-dark-soft { background-color: rgba(30,30,30,0.8); }
-  .bg-white { background-color: white; }
-
-  /* Font family */
-  .font-serif { font-family: 'Times New Roman', serif; }
-  .font-script { font-family: 'Better Saturday', cursive; }
-
-  /* Tombol umum */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 40px;
-    font-size: 1.5rem;
-    font-family: 'Times New Roman', serif;
-    color: white;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    gap: 10px;
-  }
-
-  .btn-white {
-    background-color: white;
-    color: #1a1a1a;
-  }
-
-  .btn-dark {
-    background-color: #1a1a1a;
-    color: white;
-  }
-
-  /* Elemen box abu-abu muda */
-  .gray-box {
-    background-color: #4a4a4a;
-    border-radius: 24px;
-    padding: 40px 20px;
-    width: 90%;
-    max-width: 700px;
-    margin: 0 auto;
-    color: white;
-  }
-
-  /* Box nama slide 2 & 3 */
-  .name-box {
-    background-color: rgba(30,30,30,0.8);
-    padding: 40px 60px;
-    border-radius: 30px;
-    font-family: 'Times New Roman', serif;
-    font-size: 2.5rem;
-    color: white;
-    white-space: nowrap;
-    display: inline-block;
-  }
-
-  /* Tombol copy & maps */
-  .btn-copy, .btn-maps {
-    background-color: white;
-    color: #1a1a1a;
-    border-radius: 10px;
-    padding: 16px 28px;
-    font-size: 1.3rem;
-    margin-top: 12px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Times New Roman', serif;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  /* Countdown */
-  .countdown {
-    font-family: 'Times New Roman', serif;
-    color: white;
-    font-size: clamp(2rem, 7vw, 5rem);
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-
-  .countdown .time-box {
-    text-align: center;
-  }
-
-  .time-label {
-    font-size: 1.2rem;
-    margin-top: 5px;
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
-
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(60px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .centered {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
-
-  .fade-delay {
-    animation: fadeInUp 1.2s ease-out forwards;
-    opacity: 0;
-  }
-
-  .fade-delay.delay-1 { animation-delay: 0.2s; }
-  .fade-delay.delay-2 { animation-delay: 0.4s; }
-  .fade-delay.delay-3 { animation-delay: 0.6s; }
-  .fade-delay.delay-4 { animation-delay: 0.8s; }
-  .fade-delay.delay-5 { animation-delay: 1s; }
-  .fade-delay.delay-6 { animation-delay: 1.2s; }
-
-  .btn-invite {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 28px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background: rgba(255,255,255,0.9);
-    border-radius: 10px;
-    color: #4a4a4a;
-    text-decoration: none;
-  }
-
-  #cover-slide {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    background-image: url('assets/foto-cover.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-  }
-</style>
-
-</head>
-  
-<!-- Audio -->
-<audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
-
-<!-- Cover Slide -->
-<section id="cover-slide" style="
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  background-image: url('assets/foto-cover.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;">
-
-  <!-- MY -->
-  <div class="centered fade-delay delay-1" style="
-    top: 8%; 
-    position: absolute;
-    font-family: 'Times New Roman', serif; 
-    font-size: 1rem; 
-    color: white;">
-    My
-  </div>
-
-  <!-- MAGICAL -->
-  <div class="centered fade-delay delay-2" style="
-<!DOCTYPE html>
-<html lang="id">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Irfan & Lena Wedding</title>
+  <title>Irfan & Lena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Times+New+Roman&display=swap" rel="stylesheet" />
@@ -383,3 +128,19 @@
   </div>
 
 </section>
+
+<script>
+  // Lock scroll pada awal
+  document.body.classList.add('lock-scroll');
+
+  function openInvitation() {
+    document.body.classList.remove('lock-scroll');
+    document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
+
+    const audio = document.getElementById('bgm');
+    if (audio) {
+      audio.currentTime = 16.9;
+      audio.play();
+    }
+  }
+</script>
