@@ -61,7 +61,7 @@
       border-radius: 8px;
       text-decoration: none;
     }
-
+    
   </style>
 </head>
 <body class="lock-scroll">
@@ -94,10 +94,11 @@
 
     <!-- Open Invitation Button -->
     <div class="fade-up" style="top: 70%; animation-delay: 1.2s;white-space: nowrap">
-      <a href="#" onclick="openInvitation()" class="invite-btn">
+      <a href="javascript:void(0);" onclick="openInvitation()" class="invite-btn">
         <img src="assets/amplop.png" alt="Amplop" width="28" height="24"> Open Invitation
       </a>
     </div>
+
 
     <!-- Maaf Nama -->
     <div class="fade-up" style="top: 78%; font-size: 0.45rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1.4s;white-space: nowrap">
@@ -113,7 +114,7 @@
   
 
   <!-- ✅ SLIDE 1 -->
-<section id="slide-1" style="width: 100vw; height: 100vh; position: absolute; background-image: url('assets/save-the-date.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
+<section id="slide-1" style="width: 100vw; height: 100vh; position: absolute; background-image: url('assets/save-the-date.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden; animation-delay: 4.4s;">
 
   <!-- Efek daun gugur -->
   <script>
@@ -144,38 +145,52 @@
 
   <!-- Teks kanan atas -->
   <div style="position: absolute; top: 5%; right: 5%; text-align: right; color: white;">
-    <div style="font-family: 'Better Saturday', cursive; font-size: 6rem; animation: fadeInUp 1s ease-out 0.3s;">The Wedding of</div>
-    <div style="font-family: 'Times New Roman', serif; font-size: 3rem; animation: fadeInUp 1s ease-out 0.6s;">- IRFAN & LENA -</div>
-    <div style="font-family: 'Times New Roman', serif; font-size: 2rem; animation: fadeInUp 1s ease-out 0.9s;">06.07.2025</div>
+    <div style="font-family: 'Better Saturday', cursive; font-size: 3rem; animation-delay: 4.6s;">The Wedding of</div>
+    <div style="font-family: 'Times New Roman', serif; font-size: 1rem; animation-delay: 4.8s;">- IRFAN & LENA -</div>
+    <div style="font-family: 'Times New Roman', serif; font-size: 0.7rem; animation-delay: 5s;">06.07.2025</div>
 
     <!-- Tombol Save the Date -->
     <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+Lena+%26+Irfan&dates=20250706T010000Z/20250706T090000Z&details=Alamat%3A+Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut&location=Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut"
        target="_blank"
-       style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.5); padding: 20px 30px; border-radius: 8px; margin-top: 15px; text-decoration: none; color: #000; font-weight: bold; font-size: 1.5rem; animation: fadeInUp 1s ease-out 1.2s;">
-      <img src="assets/kalender.png" alt="Kalender" style="width: 40px; height: 40px;"> Save the Date
+       style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.5); padding: 13px 16px; border-radius: 8px; margin-top: 15px; text-decoration: none; color: #000; font-weight: bold; font-size: 0.75rem; animation-delay: 5.2s;">
+      <img src="assets/kalender.png" alt="Kalender" style="width: 20px; height: 20px;"> Save the Date
     </a>
   </div>
 
   <!-- Kutipan ayat Ar-Rum -->
-  <div style="position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.3rem; color: white; animation: fadeInUp 1s ease-out 1.5s; z-index: 2;">
+  <div class="fade-up" style="position: absolute; bottom: 6%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 0.9rem; color: white; animation-delay: 5.4s; z-index: 2;">
     “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”<br>
     <strong>– QS. Ar-Rum:21 –</strong>
   </div>
 </section>
 
+  
+<script>
+  function openInvitation() {
+    // Hapus scroll lock
+    document.body.classList.remove('lock-scroll');
+    
+    // Scroll ke slide pertama
+    document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
 
-  <script>
-    function openInvitation() {
-      document.body.classList.remove('lock-scroll');
-      document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
-
-      const audio = document.getElementById('bgm');
-      if (audio) {
-        audio.currentTime = 16.9;
-        audio.play();
-      }
+    // Putar musik
+    const audio = document.getElementById('bgm');
+    if (audio) {
+      audio.currentTime = 16.9; // mulai dari detik 16 lagu
+      audio.play().catch(e => {
+        console.warn("Audio play prevented by browser:", e);
+      });
     }
-  </script>
+  }
 
-</body>
+  // Optional: agar autoplay bisa jalan di mobile saat ada gesture
+  document.addEventListener("click", () => {
+    const audio = document.getElementById('bgm');
+    if (audio && audio.paused) {
+      audio.play().catch(() => {});
+    }
+  });
+</script>
+
+ </body>
 </html>
