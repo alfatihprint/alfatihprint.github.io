@@ -24,22 +24,21 @@
     body.lock-scroll {
       overflow: hidden;
     }
-    
-@keyframes fadeInUp {
-  0% {
+       
+    @keyframes fadeInUp {
+    from {
     opacity: 0;
     transform: translateY(60px);
-  }
-  100% {
+    }
+    to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-.fade-up {
-  opacity: 0;
-  animation: fadeInUp 1.4s ease-out forwards;
-}
+     }
+    }
+    .fade-up {
+    opacity: 0;
+    animation: fadeInUp 1.4s ease-out forwards;
+    }
     .centered {
       position: absolute;
       left: 50%;
@@ -105,50 +104,40 @@
     >Story
   </div>
 
-  <div class="fade-up" style="margin-top: 60px; font-size: 0.65rem; animation-delay: 0.8s;">Dear to: Mr./Mrs./Ms.</div>
+  <!-- ✅ TEKS DEAR TO -->
+  <div class="fade-up" style="position: absolute; top: 65%; left: 50%; transform: translateX(-50%); font-size: 0.65rem; animation-delay: 0.8s;color: white; font-family: 'Times New Roman', serif;">
+    Dear to: Mr./Mrs./Ms.
+  </div>
 
-  <div class="fade-up" style="margin-top: 20px; animation-delay: 1s;">
+  <!-- ✅ TOMBOL OPEN INVITATION -->
+  <div class="fade-up" style="position: absolute; top: 71%; left: 50%; transform: translateX(-50%); animation-delay: 1s;">
     <a href="#" onclick="openInvitation()" style="
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
+      gap: 12px;
+      padding: 18px 32px;
       background: rgba(255,255,255,0.85);
       color: #333;
       font-weight: bold;
       font-size: 0.55rem;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
     ">
-      <img src="assets/amplop.png" alt="Envelope" width="24" height="24"> Open Invitation
+      <img src="assets/amplop.png" alt="Envelope" width="30" height="30"> Open Invitation
     </a>
   </div>
 
-  <div class="fade-up" style="margin-top: 20px; font-size: 0.45rem; animation-delay: 1.2s;">
+  <!-- ✅ TEKS MAAF -->
+  <div class="fade-up" style="position: absolute; top: 77%; left: 50%; transform: translateX(-50%); font-size: 0.45rem; animation-delay: 1.2s;color: white; font-family: 'Times New Roman', serif;">
     Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
   </div>
 
-  <div class="fade-up" style="margin-top: 10px; font-size: 1.75rem; font-family: 'Times New Roman', serif; animation-delay: 1.4s;">
+  <!-- ✅ NAMA IRFAN & LENA -->
+  <div class="fade-up" style="position: absolute; top: 82%; left: 50%; transform: translateX(-50%); font-size: 1.75rem; font-family: 'Times New Roman', serif; animation-delay: 1.4s; white-space: nowrap; color: white;">
     – IRFAN & LENA –
   </div>
 </section>
 
-
-
-
-<!-- ✅ ANIMASI -->
-<style>
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(80px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
 
 <!-- ✅ JS -->
 <script>
