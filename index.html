@@ -1,121 +1,224 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Irfan & Lena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Times+New+Roman&display=swap" rel="stylesheet" />
   <link href="https://fonts.cdnfonts.com/css/better-saturday" rel="stylesheet">
+  
+<style>
+  /* Reset dan layout umum */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body.lock-scroll {
+    overflow: hidden;
+  }
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-      box-sizing: border-box;
-      font-family: 'Times New Roman', serif;
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-      background-color: #1f1f1f;
-    }
+  /* Animasi efek terbit */
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(80px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 
-    * {
-      box-sizing: border-box;
-    }
+  .fade {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards;
+  }
 
-    body.lock-scroll {
-      overflow: hidden;
-    }
+  /* Efek daun gugur */
+  @keyframes fall {
+    0% { transform: translateY(0); opacity: 0.6; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
 
-    section {
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
-    }
+  /* Layout posisi tengah */
+  .center-abs {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(80px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+  /* Ukuran font responsif */
+  .font-xxl { font-size: clamp(3rem, 9vw, 7rem); }
+  .font-xl  { font-size: clamp(2.5rem, 8vw, 5rem); }
+  .font-lg  { font-size: clamp(2rem, 6vw, 4rem); }
+  .font-md  { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+  .font-sm  { font-size: clamp(1rem, 3vw, 1.5rem); }
+  .font-xs  { font-size: clamp(0.9rem, 2vw, 1.2rem); }
 
-    .fade {
-      opacity: 0;
-      animation: fadeInUp 1.2s ease-out forwards;
-    }
+  /* Warna */
+  .white { color: white; }
+  .dark { color: #1a1a1a; }
+  .bg-dark { background-color: #1a1a1a; }
+  .bg-dark-soft { background-color: rgba(30,30,30,0.8); }
+  .bg-white { background-color: white; }
 
-    .fade-delay-1 { animation-delay: 0.3s; }
-    .fade-delay-2 { animation-delay: 0.6s; }
-    .fade-delay-3 { animation-delay: 0.9s; }
-    .fade-delay-4 { animation-delay: 1.2s; }
-    .fade-delay-5 { animation-delay: 1.5s; }
+  /* Font family */
+  .font-serif { font-family: 'Times New Roman', serif; }
+  .font-script { font-family: 'Better Saturday', cursive; }
 
-    .center {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-      max-width: 90vw;
-    }
+  /* Tombol umum */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', serif;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    gap: 10px;
+  }
 
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 0.6; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
-  </style>
+  .btn-white {
+    background-color: white;
+    color: #1a1a1a;
+  }
+
+  .btn-dark {
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  /* Elemen box abu-abu muda */
+  .gray-box {
+    background-color: #4a4a4a;
+    border-radius: 24px;
+    padding: 40px 20px;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    color: white;
+  }
+
+  /* Box nama slide 2 & 3 */
+  .name-box {
+    background-color: rgba(30,30,30,0.8);
+    padding: 40px 60px;
+    border-radius: 30px;
+    font-family: 'Times New Roman', serif;
+    font-size: 2.5rem;
+    color: white;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  /* Tombol copy & maps */
+  .btn-copy, .btn-maps {
+    background-color: white;
+    color: #1a1a1a;
+    border-radius: 10px;
+    padding: 16px 28px;
+    font-size: 1.3rem;
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Times New Roman', serif;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* Countdown */
+  .countdown {
+    font-family: 'Times New Roman', serif;
+    color: white;
+    font-size: clamp(2rem, 7vw, 5rem);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .countdown .time-box {
+    text-align: center;
+  }
+
+  .time-label {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    font-family: 'Times New Roman', serif;
+    color: white;
+  }
+
+  /* Ucapan */
+  .ucapan-box {
+    background: white;
+    color: #1a1a1a;
+    font-family: 'Times New Roman', serif;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .ucapan-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+
+  .ucapan-item small {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 4px;
+  }
+
+  /* Daun gugur */
+  .leaf {
+    position: absolute;
+    width: 30px;
+    opacity: 0.5;
+    z-index: 1;
+    animation: fall 8s linear infinite;
+  }
+
+</style>
+
 </head>
-
 <body class="lock-scroll">
 
-<!-- ðŸŽµ Audio -->
-<audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
-
-<!-- âœ… COVER SLIDE -->
-<section id="cover-slide" style="background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-  
-  <!-- MY -->
-  <div class="center fade fade-delay-1" style="top: 8%; left: 50%; font-size: 3rem; font-family: 'Times New Roman', serif; color: white; position: absolute; transform: translate(-50%); text-align: center;">
-    My
-  </div>
-
-  <!-- MAGICAL -->
-  <div class="center fade fade-delay-2" style="top: 9%; left: 50%; font-size: 6rem; font-family: 'Better Saturday', cursive; color: white; position: absolute; transform: translate(-50%); text-align: center;">
-    Magical
-  </div>
-
-  <!-- STORY -->
-  <div class="center fade fade-delay-3" style="top: 16%; left: 50%; font-size: 3rem; font-family: 'Times New Roman', serif; color: white; position: absolute; transform: translate(-50%); text-align: center;">
-    Story
-  </div>
-
-  <!-- DEAR TO -->
-  <div class="center fade fade-delay-4" style="top: 67%; left: 50%; font-size: 2rem; color: white; position: absolute; transform: translate(-50%); text-align: center;">
-    Dear to: Mr./Mrs./Ms.
-  </div>
-
-  <!-- BUTTON OPEN INVITATION -->
-  <div class="center fade fade-delay-5" style="top: 72%; position: absolute; left: 50%; transform: translate(-50%);">
-    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 16px; padding: 24px 46px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.5rem; border-radius: 8px; text-decoration: none;">
-      <img src="assets/amplop.png" width="60" height="40" alt="Envelope"> Open Invitation
+<!-- SLIDE 1 (Cover Slide) -->
+<section id="cover-slide" style="position: relative; width: 100vw; height: 100vh; background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat; overflow: hidden;">
+  <div class="center-abs fade font-serif font-md white" style="top: 8%; animation-delay: 0.2s;">My</div>
+  <div class="center-abs fade font-script font-xxl white" style="top: 9%; animation-delay: 0.4s;">Magical</div>
+  <div class="center-abs fade font-serif font-md white" style="top: 16%; animation-delay: 0.6s;">Story</div>
+  <div class="center-abs fade font-serif font-md white" style="top: 67%; animation-delay: 0.8s;">Dear to: Mr./Mrs./Ms.</div>
+  <div class="center-abs fade" style="top: 72%; animation-delay: 1s;">
+    <a href="#" onclick="openInvitation()" class="btn btn-white">
+      <img src="assets/amplop.png" alt="Envelope" width="30"> Open Invitation
     </a>
   </div>
-
-  <!-- TEKS PERMOHONAN MAAF -->
-  <div class="center fade" style="top: 79%; left: 50%; transform: translate(-50%); text-align: center; font-size: 1rem; color: white; position: absolute; animation-delay: 1.6s;">
+  <div class="center-abs fade font-sm white" style="top: 79%; animation-delay: 1.2s;">
     Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
   </div>
-
-  <!-- NAMA IRFAN & LENA -->
-  <div class="center fade" style="top: 82%; left: 50%; transform: translate(-50%); text-align: center; font-size: 4.5rem; font-family: 'Times New Roman', serif; color: white; white-space: nowrap; position: absolute; animation-delay: 1.9s;">
-    - IRFAN & LENA -
+  <div class="center-abs fade font-lg font-serif white" style="top: 82%; animation-delay: 1.4s;">
+    – IRFAN & LENA –
   </div>
-
 </section>
 
-<!--  SLIDE 1 -->
+<!--  SLIDE 1 belum perbaikan-->
 <section id="slide-1" style="width: 100vw; height: 100vh; background-image: url('assets/save-the-date.png'); background-size: cover; background-position: center; position: relative; overflow: hidden;">
 
   <!-- Efek daun gugur -->
