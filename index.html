@@ -178,7 +178,8 @@
     // Sembunyikan cover agar tidak bisa scroll balik
     const cover = document.getElementById('cover-slide');
     if (cover) {
-      cover.style.display = 'none';
+      cover.style.position = 'absolute';
+      cover.style.top = '-100vh';
     }
 
     // Scroll ke slide pertama
