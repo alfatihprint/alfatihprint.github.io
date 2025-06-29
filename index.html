@@ -10,11 +10,11 @@
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: 100vh;
+      height: 100%;
       scroll-behavior: smooth;
       font-family: 'Times New Roman', serif;
       background: white;
-      overflow: hidden;
+      overflow-x: hidden;
     }
     * {
       box-sizing: border-box;
@@ -45,7 +45,6 @@
     .fade-delay-5 { animation-delay: 1s; }
     .fade-delay-6 { animation-delay: 1.2s; }
     .fade-delay-7 { animation-delay: 1.4s; }
-    .fade-delay-8 { animation-delay: 1.6s; }
 
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(60px); }
@@ -54,17 +53,15 @@
     .center-abs {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%,0);
+      transform: translateX(-50%);
       text-align: center;
       color: white;
     }
     .cover-lock {
-      position: fixed;
-      top: 0;
-      left: 0;
+      position: relative;
       width: 100vw;
       height: 100vh;
-      z-index: 999;
+      overflow: hidden;
     }
     .hidden { display: none; }
   </style>
@@ -82,7 +79,7 @@
     <div class="center-abs fade-in fade-delay-3" style="top: 17%; left: 58%; font-size: 1.2rem;">Story</div>
 
     <div class="center-abs fade-in fade-delay-4" style="top: 67%; font-size: 1rem;">Dear to: Mr./Mrs./Ms.</div>
-    <div class="center-abs fade-in fade-delay-5" style="top: 72%;">
+    <div class="center-abs fade-in fade-delay-5" style="top: 72%; left: 50%;">
       <a onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 15px; background: rgba(255,255,255,0.9); color: #333; font-size: 1rem; border-radius: 10px; text-decoration: none;">
         <img src="assets/amplop.png" width="30" height="30" /> Open Invitation
       </a>
@@ -99,9 +96,10 @@
   <script>
     function openInvitation() {
       document.body.classList.remove('lock-scroll');
-      document.getElementById('cover-slide').classList.add('hidden');
+      document.getElementById('cover-slide').style.display = 'none';
       document.getElementById('slide-1').classList.remove('hidden');
       document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
+
       const audio = document.getElementById('bgm');
       if (audio) {
         audio.currentTime = 16.9;
