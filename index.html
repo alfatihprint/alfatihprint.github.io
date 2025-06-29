@@ -25,7 +25,7 @@
     }
 
     .background-full {
-      position: relative;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -60,32 +60,108 @@
       color: white;
     }
 
-    .hidden { display: none; }
-    .lock-scroll { overflow: hidden; }
+    .hidden { display: none; }  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', serif;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      background-color: #1f1f1f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body.lock-scroll {
+      overflow: hidden;
+    }
+
+    section {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade {
+      opacity: 0;
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+
+    .fade-delay-1 { animation-delay: 0.3s; }
+    .fade-delay-2 { animation-delay: 0.6s; }
+    .fade-delay-3 { animation-delay: 0.9s; }
+    .fade-delay-4 { animation-delay: 1.2s; }
+    .fade-delay-5 { animation-delay: 1.5s; }
+
+    .center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 0.6; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
+
 <body class="lock-scroll">
 
+<!-- ðŸŽµ Audio -->
 <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
+<!-- âœ… COVER SLIDE -->
+<section id="cover-slide" style="background-image: url('assets/foto-cover.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  
+  <!-- MY -->
+  <div class="center fade fade-delay-1" style="top: 8%; font-size: 3rem; font-family: 'Times New Roman', serif; color: white; position: absolute;">
+    My
+  </div>
 
-<section id="cover-slide">
-  <img src="assets/foto-cover.png" class="background-full" alt="cover" />
+  <!-- MAGICAL -->
+  <div class="center fade fade-delay-2" style="top: 13%; font-size: 8rem; font-family: 'Better Saturday', cursive; color: white; position: absolute;">
+    Magical
+  </div>
 
-  <div class="center-abs fade-in fade-delay-1" style="top: 8%; left: 42%; font-size: 1.2rem;">My</div>
-  <div class="center-abs fade-in fade-delay-2" style="top: 10%; left: 50%; font-size: 3rem; font-family: 'Better Saturday', cursive;">Magical</div>
-  <div class="center-abs fade-in fade-delay-3" style="top: 17%; left: 58%; font-size: 1.2rem;">Story</div>
+  <!-- STORY -->
+  <div class="center fade fade-delay-3" style="top: 25%; font-size: 3rem; font-family: 'Times New Roman', serif; color: white; position: absolute;">
+    Story
+  </div>
 
-  <div class="center-abs fade-in fade-delay-4" style="top: 67%; font-size: 0.9rem;">Dear to: Mr./Mrs./Ms.</div>
+  <!-- DEAR TO -->
+  <div class="center fade fade-delay-4" style="top: 67%; font-size: 1.5rem; color: white; position: absolute;">
+    Dear to: Mr./Mrs./Ms.
+  </div>
 
-  <div class="center-abs fade-in fade-delay-5" style="top: 72%;">
-    <a onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; background: rgba(255,255,255,0.9); color: #333; font-size: 0.9rem; border-radius: 8px; text-decoration: none;">
-      <img src="assets/amplop.png" alt="amplop" width="24" height="24" /> Open Invitation
+  <!-- BUTTON OPEN INVITATION -->
+  <div class="center fade fade-delay-5" style="top: 72%; position: absolute;">
+    <a href="#" onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 16px; padding: 18px 30px; background: rgba(255,255,255,0.85); color: #333; font-weight: bold; font-size: 1.3rem; border-radius: 8px; text-decoration: none;">
+      <img src="assets/amplop.png" width="40" height="40" alt="Envelope"> Open Invitation
     </a>
   </div>
 
-  <div class="center-abs fade-in fade-delay-6" style="top: 79%; font-size: 0.8rem;">Mohon maaf apabila terdapat kesalahan penulisan nama/gelar</div>
-  <div class="center-abs fade-in fade-delay-7" style="top: 82%; font-size: 2rem;">- IRFAN & LENA -</div>
-</section>
+  <!-- TEKS PERMOHONAN MAAF -->
+  <div class="center fade" style="top: 79%; font-size: 1rem; color: white; position: absolute; animation-delay: 1.6s;">
+    Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
+  </div>
+
+  <!-- NAMA IRFAN & LENA -->
+  <div class="center fade" style="top: 83%; font-size: 3.5rem; font-family: 'Times New Roman', serif; color: white; white-space: nowrap; position: absolute; animation-delay: 1.9s;">
+    â€“ IRFAN & LENA â€“
+  </div>
+
 
 <section id="slide-1" class="hidden">
   <img src="assets/save-the-date.png" class="background-full" alt="slide1" />
