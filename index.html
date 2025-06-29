@@ -10,11 +10,11 @@
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: 100%;
+      height: 100vh;
       scroll-behavior: smooth;
       font-family: 'Times New Roman', serif;
       background: white;
-      overflow-x: hidden;
+      overflow: hidden;
     }
     * {
       box-sizing: border-box;
@@ -59,10 +59,12 @@
       color: white;
     }
     .cover-lock {
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
+      z-index: 999;
     }
     .hidden { display: none; }
   </style>
@@ -97,10 +99,9 @@
   <script>
     function openInvitation() {
       document.body.classList.remove('lock-scroll');
-      document.getElementById('cover-slide').style.display = 'none';
+      document.getElementById('cover-slide').classList.add('hidden');
       document.getElementById('slide-1').classList.remove('hidden');
       document.getElementById('slide-1').scrollIntoView({ behavior: 'smooth' });
-
       const audio = document.getElementById('bgm');
       if (audio) {
         audio.currentTime = 16.9;
