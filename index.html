@@ -1,235 +1,112 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Irfan & Lena</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.cdnfonts.com/css/better-saturday" rel="stylesheet">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: 100vh;
-      overflow-x: hidden;
+      height: 100%;
       scroll-behavior: smooth;
-      box-sizing: border-box;
+      font-family: 'Times New Roman', serif;
+      background: white;
     }
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
-    body.lock-scroll {
-      overflow: hidden;
-    }
-
-      .bg-full {
-      position: relative;
-      top: 0; left: 0;
+    section {
       width: 100vw;
       height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .background-full {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: center;
       z-index: -1;
     }
-
-     @keyframes fadeInUpCenterFix {
-     0% {
-     opacity: 0;
-     transform: translate(-50%, 60px);
-   }
-     100% {
-     opacity: 1;
-     transform: translate(-50%, 0);
-       }
-     }
-
-     .anim-up-center {
-     position: absolute;
-     left: 50%;
-     transform: translate(-50%, 0);
-     animation: fadeInUpCenterFix 1.5s ease-out forwards;
-     opacity: 0;
-     }
-
-    a.invite-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 14px;
-      background: rgba(255, 255, 255, 0.85);
-      color: #333;
-      font-weight: bold;
-      font-size: 0.63rem;
-      border-radius: 8px;
-      text-decoration: none;
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out forwards;
     }
-    .fade-scroll {
-     opacity: 0;
-     transform: translateY(60px);
-     transition: all 1.2s ease-out;
-    }
-   .fade-scroll.animate {
-    opacity: 1;
-    transform: translateY(0);
-    }
+    .fade-delay-1 { animation-delay: 0.2s; }
+    .fade-delay-2 { animation-delay: 0.4s; }
+    .fade-delay-3 { animation-delay: 0.6s; }
+    .fade-delay-4 { animation-delay: 0.8s; }
+    .fade-delay-5 { animation-delay: 1s; }
+    .fade-delay-6 { animation-delay: 1.2s; }
+    .fade-delay-7 { animation-delay: 1.4s; }
+    .fade-delay-8 { animation-delay: 1.6s; }
 
-  </style>
-</head>
-<body class="lock-scroll">
-
-  <!-- 🎵 AUDIO -->
-  <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
-
-  <!-- ✅ COVER-SLIDE -->
-  <section id="bg-full">
-  <img src="assets/foto-cover.png" class="bg-full" loading="eager" fetchpriority="high">
-
-    <!-- MY -->
-    <div class="anim-up-center" style="left: 45%; transform: translateX(-50%);top: 10%; font-size: 1rem; font-family: 'Times New Roman', serif; color: white; animation-delay: 0.4s;">
-      My
-    </div>
-
-    <!-- MAGICAL -->
-    <div class="anim-up-center" style="position: absolute; top: 7%; font-size: 3rem; font-family: 'Better Saturday', cursive; color: white; animation-delay: 0.6s;">
-      Magical
-    </div>
-
-    <!-- STORY -->
-    <div class="anim-up-center" style="left: 58.5%; transform: translateX(-50%); top: 18%; font-size: 1rem; font-family: 'Times New Roman', serif; color: white; animation-delay: 0.8s;">
-      Story
-    </div>
-
-    <!-- Dear To -->
-    <div class="anim-up-center" style="top: 66%; font-size: 0.9rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1s;">
-      Dear to: Mr./Mrs./Ms.
-    </div>
-
-    <!-- Open Invitation Button -->
-    <div class="anim-up-center" style="top: 70%; animation-delay: 1.2s;white-space: nowrap">
-      <a href="javascript:void(0);" onclick="openInvitation()" class="invite-btn">
-        <img src="assets/amplop.png" alt="Amplop" width="24" height="20"> Open Invitation
-      </a>
-    </div>
-
-
-    <!-- Maaf Nama -->
-    <div class="anim-up-center" style="top: 78%; font-size: 0.45rem; color: white; font-family: 'Times New Roman', serif; animation-delay: 1.4s;white-space: nowrap">
-      Mohon maaf apabila terdapat kesalahan penulisan nama/gelar
-    </div>
-
-    <!-- Nama Irfan & Lena -->
-    <div class="anim-up-center" style="top: 82%; font-size: 2rem; color: white; font-family: 'Times New Roman', cursive; animation-delay: 1.6s;white-space: nowrap">
-      – IRFAN & LENA –
-    </div>
-
-  </section>
-  
-
-  <!-- ✅ SLIDE 1 -->
-<section id="slide-1";>
-  <img src="assets/save-the-date.png" class="bg-full" loading="eager" fetchpriority="high">
-
-  <!-- Efek daun gugur -->
-  <script>
-    for (let i = 0; i < 20; i++) {
-      const leaf = document.createElement("img");
-      leaf.src = "assets/daun-emas.png";
-      leaf.style.position = "absolute";
-      leaf.style.top = `${-Math.random() * 100}px`;
-      leaf.style.left = `${Math.random() * 100}vw`;
-      leaf.style.width = "30px";
-      leaf.style.opacity = "0.5";
-      leaf.style.zIndex = "1";
-      leaf.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
-      document.currentScript.parentElement.appendChild(leaf);
-    }
-  </script>
-
-  <style>
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 0.6; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(60px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
+    .centered {
+      position: absolute;
+      transform: translate(-50%, 0);
+      left: 50%;
+      text-align: center;
+      color: white;
+    }
+    .cover-lock {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+      overflow: hidden;
+    }
+    .hidden { display: none; }
   </style>
+</head>
+<body>
+  <!-- Audio -->
+  <audio id="bgm" src="assets/lagu-cinta-terakhir.mp3" preload="auto" loop></audio>
 
-  <!-- Teks kanan atas -->
-  <div class="fade-scroll" style="position: absolute; top: 3%; right: 5%; text-align: right; color: white;">
-    <div class="fade-scroll" style="font-family: 'Better Saturday', cursive; font-size: 2.2rem; animation: fadeInUp 3s ease-out 5s;">The Wedding of</div>
-    <div class="fade-scroll" style="font-family: 'Times New Roman', serif; font-size: 1rem; animation: fadeInUp 3s ease-out 5.2s;">- IRFAN & LENA -</div>
-    <div class="fade-scroll" style="font-family: 'Times New Roman', serif; font-size: 1rem; animation: fadeInUp 3s ease-out 5.4s;">06.07.2025</div>
+  <!-- COVER SLIDE -->
+  <section id="cover-slide" class="cover-lock">
+    <img src="assets/foto-cover.png" class="background-full" alt="cover" />
 
-    <!-- Tombol Save the Date -->
-  <div class="fade-scroll" style="top: 9%; display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.5); padding: 13px 16px; border-radius: 8px; margin-top: 15px; text-decoration: none; color: #000; font-weight: bold; font-size: 0.64rem; animation: fadeInUp 3s ease-out 5.6s;">
-    <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=The+Wedding+of+Lena+%26+Irfan&dates=20250706T010000Z/20250706T090000Z&details=Alamat%3A+Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut&location=Kp.+Pamoyanan+07%2F01%2C+Desa+Sukagalih%2C+Kec.+Tarogong+Kaler%2C+Kab.+Garut"
-     target="_blank">
-     <img src="assets/kalender.png" alt="Kalender" style="width: 14px; height: 14px;"> Save the Date
-    </a>
-  </div>
+    <!-- Text My -->
+    <div class="centered fade-in fade-delay-1" style="top: 8%; left: 42%; font-size: 2rem;">My</div>
+    <div class="centered fade-in fade-delay-2" style="top: 9%; left: 50%; font-size: 6rem; font-family: 'Better Saturday', cursive;">Magical</div>
+    <div class="centered fade-in fade-delay-3" style="top: 17%; left: 58%; font-size: 2rem;">Story</div>
 
-  <!-- Kutipan ayat Ar-Rum -->
-  <div class="fade-scroll" style="position: absolute; bottom: 24%; left: 50%; transform: translateX(-50%); width: 90%; max-width: 700px; text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 0.8rem; color: white; animation: fadeInUp es ease-out 5.8s; z-index: 2;">
-    “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”<br>
-    <strong>– QS. Ar-Rum:21 –</strong>
-  </div>
-</section>
+    <!-- Text Dear & Tombol -->
+    <div class="centered fade-in fade-delay-4" style="top: 67%; font-size: 1.5rem;">Dear to: Mr./Mrs./Ms.</div>
+    <div class="centered fade-in fade-delay-5" style="top: 72%;">
+      <a onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 10px; padding: 20px 30px; background: rgba(255,255,255,0.9); color: #333; font-size: 1.5rem; border-radius: 10px; text-decoration: none;">
+        <img src="assets/amplop.png" width="40" height="40" /> Open Invitation
+      </a>
+    </div>
+    <div class="centered fade-in fade-delay-6" style="top: 79%; font-size: 1rem;">Mohon maaf apabila terdapat kesalahan penulisan nama/gelar</div>
+    <div class="centered fade-in fade-delay-7" style="top: 82%; font-size: 3rem;">– IRFAN & LENA –</div>
+  </section>
 
-  
-<script>
-  function openInvitation() {
-    document.body.classList.remove('lock-scroll');
+  <!-- SLIDE 1 -->
+  <section id="slide-1" class="hidden">
+    <img src="assets/save-the-date.png" class="background-full" alt="slide1" />
+    <!-- Daun gugur dan teks akan ditambahkan sesuai instruksi selanjutnya -->
+  </section>
 
-    // Sembunyikan cover agar tidak bisa scroll balik
-    const cover = document.getElementById('cover-slide');
-    if (cover) {
-      cover.style.position = 'absolute';
-      cover.style.top = '-100vh';
-    }
-
-    // Scroll ke slide pertama
-    const slide1 = document.getElementById('slide-1');
-    if (slide1) {
-      slide1.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Mainkan musik
-    const audio = document.getElementById('bgm');
-    if (audio) {
+  <script>
+    function openInvitation() {
+      document.getElementById("cover-slide").classList.add("hidden");
+      document.getElementById("slide-1").classList.remove("hidden");
+      const audio = document.getElementById("bgm");
       audio.currentTime = 16.9;
-      audio.play().catch(e => console.warn('Autoplay error:', e));
+      audio.play();
     }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-  if (entry.isIntersecting) {
-  entry.target.classList.add("animate");
-  observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
-
-  document.querySelectorAll('.fade-scroll').forEach(el => {
-    observer.observe(el);
-     });
-  });
-
-  document.addEventListener('click', () => {
-    const audio = document.getElementById('bgm');
-    if (audio && audio.paused) {
-      audio.play().catch(() => {});
-    }
-  });
-</script>
-
- </body>
+  </script>
+</body>
 </html>
