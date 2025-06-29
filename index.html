@@ -50,13 +50,18 @@
       0% { opacity: 0; transform: translateY(60px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
     .centered {
       position: absolute;
       transform: translate(-50%, 0);
       left: 50%;
       text-align: center;
       color: white;
+    }
+    .center-abs {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
     }
     .cover-lock {
       position: fixed;
@@ -79,19 +84,19 @@
     <img src="assets/foto-cover.png" class="background-full" alt="cover" />
 
     <!-- Text My -->
-    <div class="centered fade-in fade-delay-1" style="top: 8%; left: 42%; font-size: 1rem;">My</div>
-    <div class="centered fade-in fade-delay-2" style="top: 9%; left: 50%; font-size: 3rem; font-family: 'Better Saturday', cursive;">Magical</div>
-    <div class="centered fade-in fade-delay-3" style="top: 17%; left: 58%; font-size: 1rem;">Story</div>
+    <div class="center-abs fade-in fade-delay-1" style="top: 8%; left: 42%; font-size: 1rem;">My</div>
+    <div class="center-abs fade-in fade-delay-2" style="top: 9%; left: 50%; font-size: 3rem; font-family: 'Better Saturday', cursive;">Magical</div>
+    <div class="center-abs fade-in fade-delay-3" style="top: 17%; left: 58%; font-size: 1rem;">Story</div>
 
     <!-- Text Dear & Tombol -->
-    <div class="centered fade-in fade-delay-4" style="top: 67%; font-size: 0.75rem;">Dear to: Mr./Mrs./Ms.</div>
-    <div class="centered fade-in fade-delay-5" style="top: 72%;">
-      <a onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 15px; background: rgba(255,255,255,0.9); color: #333; font-size: 0.5rem; border-radius: 10px; text-decoration: none;">
+    <div class="center-abs fade-in fade-delay-4" style="top: 67%; font-size: 0.75rem;">Dear to: Mr./Mrs./Ms.</div>
+    <div class="center-abs fade-in fade-delay-5" style="top: 72%;">
+      <a onclick="openInvitation()" style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 15px; background: rgba(255,255,255,0.9); color: #333; font-size: 0.65rem; border-radius: 10px; text-decoration: none;">
         <img src="assets/amplop.png" width="20" height="20" /> Open Invitation
       </a>
     </div>
-    <div class="centered fade-in fade-delay-6" style="top: 79%; font-size: 0.5rem; white-space: nowrap;">Mohon maaf apabila terdapat kesalahan penulisan nama/gelar</div>
-    <div class="centered fade-in fade-delay-7" style="top: 82%; font-size: 1.5rem; white-space: nowrap;">– IRFAN & LENA –</div>
+    <div class="center-abs fade-in fade-delay-6" style="top: 79%; font-size: 0.5rem; white-space: nowrap;">Mohon maaf apabila terdapat kesalahan penulisan nama/gelar</div>
+    <div class="center-abs fade-in fade-delay-7" style="top: 82%; font-size: 1.5rem; white-space: nowrap;">– IRFAN & LENA –</div>
   </section>
 
   <!-- SLIDE 1 -->
